@@ -1,4 +1,4 @@
-27141023102795210
+27149891660295363
 282837_2
 TE_282837-2
 
@@ -71441,6 +71441,13 @@ IND_LPS3015-222MRC
 0
 2
 2
+MSK12C02
+SW_MSK12C02
+
+
+0
+7
+7
 Module
 A20_OLINUXINO_LIME2
 A20 Olinuxino LIME2, 1.2GHz, 512-1024MB RAM, Micro-SD, NAND or eMMC, 1000Mbit Ethernet
@@ -106784,6 +106791,13 @@ igbt diode module
 0
 25
 25
+USBC-16_footprints
+CONN16_C16PIN_SHN
+
+TYPE-C16PIN 
+0
+16
+16
 Valve
 Valve_ECC-83-1
 Valve ECC-83-1 round pins
@@ -107568,6 +107582,27 @@ Varistor VF
 0
 2
 2
+custom_footprints
+TSB008A2518A
+
+
+0
+0
+0
+custom_footprints
+TVAF06-N020C2-R
+
+
+0
+0
+0
+custom_footprints
+Untitled
+
+
+0
+0
+0
 footprints
 CONN_S2B-PH-K-S_JST
 
