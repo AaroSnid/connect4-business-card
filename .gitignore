@@ -1,0 +1,6 @@
+# KiCad backup folders
+*-backups/
+
+# KiCad autosave files
+*.kicad_prl
+*.autosave
