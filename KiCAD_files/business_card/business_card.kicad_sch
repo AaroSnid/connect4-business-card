@@ -3547,10 +3547,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Switch:SW_MEC_5G"
-			(pin_numbers
-				(hide yes)
-			)
+		(symbol "Switch:SW_MEC_5E"
 			(pin_names
 				(offset 1.016)
 				(hide yes)
@@ -3559,7 +3556,7 @@
 			(in_bom yes)
 			(on_board yes)
 			(property "Reference" "SW"
-				(at 1.27 2.54 0)
+				(at 0.635 5.715 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -3567,8 +3564,8 @@
 					(justify left)
 				)
 			)
-			(property "Value" "SW_MEC_5G"
-				(at 0 -1.524 0)
+			(property "Value" "SW_MEC_5E"
+				(at 0 -3.175 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -3576,7 +3573,7 @@
 				)
 			)
 			(property "Footprint" ""
-				(at 0 5.08 0)
+				(at 0 7.62 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -3584,8 +3581,8 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" "http://www.apem.com/int/index.php?controller=attachment&id_attachment=488"
-				(at 0 5.08 0)
+			(property "Datasheet" "http://www.apem.com/int/index.php?controller=attachment&id_attachment=1371"
+				(at 0 7.62 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -3593,7 +3590,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "MEC 5G single pole normally-open tactile switch"
+			(property "Description" "MEC 5E single pole normally-open tactile switch"
 				(at 0 0 0)
 				(effects
 					(font
@@ -3620,7 +3617,217 @@
 					(hide yes)
 				)
 			)
-			(symbol "SW_MEC_5G_0_1"
+			(symbol "SW_MEC_5E_0_1"
+				(polyline
+					(pts
+						(xy -2.54 0) (xy -2.54 2.54) (xy -2.286 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.286 3.81) (xy 2.286 3.81)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center -1.778 2.54)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 3.81) (xy 0 5.588)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 1.778 2.54)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 0) (xy 2.54 2.54) (xy 2.286 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at -5.08 2.54 0)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 2.54 180)
+					(length 2.54)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "K"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Switch:SW_Push"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "SW"
+				(at 1.27 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "SW_Push"
+				(at 0 -1.524 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Push button switch, generic, two pins"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "switch normally-open pushbutton push-button"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "SW_Push_0_1"
 				(circle
 					(center -2.032 0)
 					(radius 0.508)
@@ -3670,7 +3877,7 @@
 				(pin passive line
 					(at -5.08 0 0)
 					(length 2.54)
-					(name "A"
+					(name "1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3688,28 +3895,7 @@
 				(pin passive line
 					(at 5.08 0 180)
 					(length 2.54)
-					(name "B"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(symbol "SW_MEC_5G_1_1"
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(hide yes)
-					(name "A"
+					(name "2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3717,25 +3903,6 @@
 						)
 					)
 					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 5.08 0 180)
-					(length 2.54)
-					(hide yes)
-					(name "B"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -4220,7 +4387,7 @@
 	)
 	(rectangle
 		(start 218.44 35.56)
-		(end 250.19 82.55)
+		(end 255.27 82.55)
 		(stroke
 			(width 0)
 			(type default)
@@ -5712,6 +5879,16 @@
 	)
 	(wire
 		(pts
+			(xy 243.84 78.74) (xy 241.3 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1686b44c-a82c-48e0-a709-44adc269f3bc")
+	)
+	(wire
+		(pts
 			(xy 36.83 120.65) (xy 36.83 135.89)
 		)
 		(stroke
@@ -5792,6 +5969,16 @@
 	)
 	(wire
 		(pts
+			(xy 243.84 72.39) (xy 241.3 72.39)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1cb74551-9021-421c-983b-9cb43de06afe")
+	)
+	(wire
+		(pts
 			(xy 111.76 156.21) (xy 115.57 156.21)
 		)
 		(stroke
@@ -5862,7 +6049,7 @@
 	)
 	(wire
 		(pts
-			(xy 220.98 78.74) (xy 228.6 78.74)
+			(xy 220.98 78.74) (xy 231.14 78.74)
 		)
 		(stroke
 			(width 0)
@@ -5882,7 +6069,7 @@
 	)
 	(wire
 		(pts
-			(xy 220.98 40.64) (xy 228.6 40.64)
+			(xy 220.98 40.64) (xy 231.14 40.64)
 		)
 		(stroke
 			(width 0)
@@ -6042,7 +6229,7 @@
 	)
 	(wire
 		(pts
-			(xy 220.98 53.34) (xy 228.6 53.34)
+			(xy 220.98 53.34) (xy 231.14 53.34)
 		)
 		(stroke
 			(width 0)
@@ -6082,6 +6269,16 @@
 	)
 	(wire
 		(pts
+			(xy 243.84 40.64) (xy 241.3 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "34ff1514-2b1f-487d-a067-7ce025f4050d")
+	)
+	(wire
+		(pts
 			(xy 176.53 52.07) (xy 185.42 52.07)
 		)
 		(stroke
@@ -6102,7 +6299,7 @@
 	)
 	(wire
 		(pts
-			(xy 220.98 59.69) (xy 228.6 59.69)
+			(xy 220.98 59.69) (xy 231.14 59.69)
 		)
 		(stroke
 			(width 0)
@@ -6692,7 +6889,7 @@
 	)
 	(wire
 		(pts
-			(xy 220.98 66.04) (xy 228.6 66.04)
+			(xy 220.98 66.04) (xy 231.14 66.04)
 		)
 		(stroke
 			(width 0)
@@ -6942,6 +7139,16 @@
 	)
 	(wire
 		(pts
+			(xy 243.84 66.04) (xy 241.3 66.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "72527644-ef8c-4cbd-bb4e-9d286fa237a8")
+	)
+	(wire
+		(pts
 			(xy 106.68 120.65) (xy 111.76 120.65)
 		)
 		(stroke
@@ -7009,6 +7216,16 @@
 			(type default)
 		)
 		(uuid "7ad9dc02-5200-4d07-a738-08425c5a21bf")
+	)
+	(wire
+		(pts
+			(xy 243.84 59.69) (xy 241.3 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7b510e8d-685f-40d0-98bd-361365798666")
 	)
 	(wire
 		(pts
@@ -7092,7 +7309,7 @@
 	)
 	(wire
 		(pts
-			(xy 220.98 72.39) (xy 228.6 72.39)
+			(xy 220.98 72.39) (xy 231.14 72.39)
 		)
 		(stroke
 			(width 0)
@@ -7149,6 +7366,16 @@
 			(type default)
 		)
 		(uuid "87db8a17-7f57-4202-9791-7e9db14339f0")
+	)
+	(wire
+		(pts
+			(xy 243.84 46.99) (xy 241.3 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "87e3ec30-c205-4250-b700-c46ca33e5967")
 	)
 	(wire
 		(pts
@@ -7932,7 +8159,7 @@
 	)
 	(wire
 		(pts
-			(xy 220.98 46.99) (xy 228.6 46.99)
+			(xy 220.98 46.99) (xy 231.14 46.99)
 		)
 		(stroke
 			(width 0)
@@ -8279,6 +8506,16 @@
 			(type default)
 		)
 		(uuid "f2330ee7-25d3-4694-bee2-698e6f1f68b9")
+	)
+	(wire
+		(pts
+			(xy 243.84 53.34) (xy 241.3 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f2356eb3-e93d-4b42-a8a6-05329d8fb303")
 	)
 	(wire
 		(pts
@@ -9038,7 +9275,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "P4-1615ROTCA1-0.6T_same_size:LED_CHIP"
 			(at 49.53 115.57 0)
 			(effects
 				(font
@@ -9179,7 +9416,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "P4-1615ROTCA1-0.6T_same_size:LED_CHIP"
 			(at 35.56 115.57 0)
 			(effects
 				(font
@@ -9255,7 +9492,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "P4-1615ROTCA1-0.6T_same_size:LED_CHIP"
 			(at 119.38 146.05 0)
 			(effects
 				(font
@@ -9331,7 +9568,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "P4-1615ROTCA1-0.6T_same_size:LED_CHIP"
 			(at 63.5 115.57 0)
 			(effects
 				(font
@@ -9407,7 +9644,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "P4-1615ROTCA1-0.6T_same_size:LED_CHIP"
 			(at 105.41 146.05 0)
 			(effects
 				(font
@@ -9521,83 +9758,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Switch:SW_MEC_5G")
-		(at 233.68 78.74 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "09da7261-dde6-41f8-85b9-446976ef4137")
-		(property "Reference" "SW7"
-			(at 235.712 80.264 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "SW_MEC_5G"
-			(at 233.68 73.66 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "custom_footprints:TSB008A2518A"
-			(at 233.68 73.66 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "http://www.apem.com/int/index.php?controller=attachment&id_attachment=488"
-			(at 233.68 73.66 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "MEC 5G single pole normally-open tactile switch"
-			(at 233.68 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "288da42e-38e7-47cd-923a-bddaa4c698ef")
-		)
-		(pin "3"
-			(uuid "216d7e03-b024-4184-8e16-1671144ef079")
-		)
-		(pin "2"
-			(uuid "63c67dbf-2cfe-4768-a596-d9c9a25c9e25")
-		)
-		(pin "4"
-			(uuid "023653c4-fe9f-4f52-953e-c35591adcb9c")
-		)
-		(instances
-			(project "business_card"
-				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
-					(reference "SW7")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:+3.3V")
-		(at 238.76 59.69 270)
+		(at 243.84 59.69 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -9605,7 +9767,7 @@
 		(dnp no)
 		(uuid "0f0d257c-e7c8-4cfa-9753-146c8219fe61")
 		(property "Reference" "#PWR014"
-			(at 234.95 59.69 0)
+			(at 240.03 59.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9614,7 +9776,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 241.554 59.69 90)
+			(at 246.634 59.69 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9623,7 +9785,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 238.76 59.69 0)
+			(at 243.84 59.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9632,7 +9794,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 238.76 59.69 0)
+			(at 243.84 59.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9641,7 +9803,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 238.76 59.69 0)
+			(at 243.84 59.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9689,7 +9851,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "P4-1615ROTCA1-0.6T_same_size:LED_CHIP"
 			(at 35.56 175.26 0)
 			(effects
 				(font
@@ -9765,7 +9927,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "P4-1615ROTCA1-0.6T_same_size:LED_CHIP"
 			(at 35.56 101.6 0)
 			(effects
 				(font
@@ -9841,7 +10003,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "P4-1615ROTCA1-0.6T_same_size:LED_CHIP"
 			(at 77.47 175.26 0)
 			(effects
 				(font
@@ -9917,7 +10079,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "P4-1615ROTCA1-0.6T_same_size:LED_CHIP"
 			(at 63.5 130.81 0)
 			(effects
 				(font
@@ -10408,7 +10570,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "P4-1615ROTCA1-0.6T_same_size:LED_CHIP"
 			(at 49.53 175.26 0)
 			(effects
 				(font
@@ -10457,6 +10619,80 @@
 		)
 	)
 	(symbol
+		(lib_id "Switch:SW_MEC_5E")
+		(at 236.22 49.53 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "1ca0eaae-d7ca-48b2-8ecf-13869c1914a2")
+		(property "Reference" "SW2"
+			(at 236.474 49.022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SW_MEC_5E"
+			(at 236.22 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "1TS026A-2000-0553-CT:SW-SMD_4P-L2.6-W1.6-P0.75-LS3.0"
+			(at 236.22 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.apem.com/int/index.php?controller=attachment&id_attachment=1371"
+			(at 236.22 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "MEC 5E single pole normally-open tactile switch"
+			(at 236.22 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "4"
+			(uuid "65ad5d13-3906-4255-afe2-0e5d648b4ecd")
+		)
+		(pin "3"
+			(uuid "0a07c7d5-f5a7-475a-baef-b795041abc8e")
+		)
+		(pin "1"
+			(uuid "f4b91962-fc44-4713-a73a-d302d0d19f11")
+		)
+		(pin "2"
+			(uuid "04a32dc8-9180-4dea-a964-b3f4da28a045")
+		)
+		(instances
+			(project "business_card"
+				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
+					(reference "SW2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "custom_symbols:P4-1615ROTCA1-0.6T")
 		(at 119.38 175.26 90)
 		(unit 1)
@@ -10484,7 +10720,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "P4-1615ROTCA1-0.6T_same_size:LED_CHIP"
 			(at 119.38 175.26 0)
 			(effects
 				(font
@@ -10732,81 +10968,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Switch:SW_MEC_5G")
-		(at 233.68 53.34 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "24d69f62-c5d1-4dd3-b535-0f305c301494")
-		(property "Reference" "SW3"
-			(at 235.712 54.864 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "SW_MEC_5G"
-			(at 233.68 48.26 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "custom_footprints:TSB008A2518A"
-			(at 233.68 48.26 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "http://www.apem.com/int/index.php?controller=attachment&id_attachment=488"
-			(at 233.68 48.26 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "MEC 5G single pole normally-open tactile switch"
-			(at 233.68 53.34 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "d9266178-8391-4838-8703-81b8daadac73")
-		)
-		(pin "3"
-			(uuid "370ab2af-f19b-4c11-81c3-9183914e38cb")
-		)
-		(pin "2"
-			(uuid "033fc87d-142c-491e-89fc-2b36bfeb967f")
-		)
-		(pin "4"
-			(uuid "b08574c8-d3d6-4c1b-950d-cabe595a7dd9")
-		)
-		(instances
-			(project "business_card"
-				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
-					(reference "SW3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "custom_symbols:P4-1615ROTCA1-0.6T")
 		(at 63.5 146.05 90)
 		(unit 1)
@@ -10834,7 +10995,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "P4-1615ROTCA1-0.6T_same_size:LED_CHIP"
 			(at 63.5 146.05 0)
 			(effects
 				(font
@@ -10948,8 +11109,82 @@
 		)
 	)
 	(symbol
+		(lib_id "Switch:SW_MEC_5E")
+		(at 236.22 81.28 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "2c1c39ab-dfa7-4368-9a98-30ba4dfbad39")
+		(property "Reference" "SW7"
+			(at 236.474 80.772 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SW_MEC_5E"
+			(at 236.22 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "1TS026A-2000-0553-CT:SW-SMD_4P-L2.6-W1.6-P0.75-LS3.0"
+			(at 236.22 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.apem.com/int/index.php?controller=attachment&id_attachment=1371"
+			(at 236.22 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "MEC 5E single pole normally-open tactile switch"
+			(at 236.22 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "4"
+			(uuid "266543c9-6dd8-4f3f-a1c8-cbcf6c8f4aab")
+		)
+		(pin "3"
+			(uuid "c66e7947-2fdb-4875-9fdb-25acf60ca8f4")
+		)
+		(pin "1"
+			(uuid "157af5a0-497a-4dac-8c7c-cf777b100ddc")
+		)
+		(pin "2"
+			(uuid "239bc82f-e951-4ee4-a061-e37a65f1a2c7")
+		)
+		(instances
+			(project "business_card"
+				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
+					(reference "SW7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+3.3V")
-		(at 238.76 46.99 270)
+		(at 243.84 46.99 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -10957,7 +11192,7 @@
 		(dnp no)
 		(uuid "2c675825-96fc-4d5e-9441-9564903ad6ae")
 		(property "Reference" "#PWR018"
-			(at 234.95 46.99 0)
+			(at 240.03 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10966,7 +11201,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 241.554 46.99 90)
+			(at 246.634 46.99 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10975,7 +11210,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 238.76 46.99 0)
+			(at 243.84 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10984,7 +11219,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 238.76 46.99 0)
+			(at 243.84 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10993,7 +11228,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 238.76 46.99 0)
+			(at 243.84 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11008,81 +11243,6 @@
 			(project "business_card"
 				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
 					(reference "#PWR018")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Switch:SW_MEC_5G")
-		(at 233.68 46.99 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "2fa25b88-46bc-4ac9-bbee-e1647c4dccc3")
-		(property "Reference" "SW2"
-			(at 235.712 48.514 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "SW_MEC_5G"
-			(at 233.68 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "custom_footprints:TSB008A2518A"
-			(at 233.68 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "http://www.apem.com/int/index.php?controller=attachment&id_attachment=488"
-			(at 233.68 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "MEC 5G single pole normally-open tactile switch"
-			(at 233.68 46.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "03593157-3761-462c-8c7d-5bb972737251")
-		)
-		(pin "3"
-			(uuid "ddb0bf88-643f-4313-a82b-bf42a156dad9")
-		)
-		(pin "2"
-			(uuid "1203fc01-529f-49d5-b791-41575b46665c")
-		)
-		(pin "4"
-			(uuid "8c25eb30-271a-4a0c-a7f1-ebab15a27bcf")
-		)
-		(instances
-			(project "business_card"
-				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
-					(reference "SW2")
 					(unit 1)
 				)
 			)
@@ -11254,7 +11414,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "P4-1615ROTCA1-0.6T_same_size:LED_CHIP"
 			(at 77.47 146.05 0)
 			(effects
 				(font
@@ -11303,156 +11463,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Switch:SW_MEC_5G")
-		(at 132.08 46.99 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "36d1ec30-ff3b-43db-9932-234183ee0c2b")
-		(property "Reference" "SW8"
-			(at 134.112 48.514 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "SW_MEC_5G"
-			(at 132.08 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "custom_footprints:TVAF06-N020C2-R"
-			(at 132.08 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "http://www.apem.com/int/index.php?controller=attachment&id_attachment=488"
-			(at 132.08 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "MEC 5G single pole normally-open tactile switch"
-			(at 132.08 46.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "10a5fb2e-c247-4356-b8e1-dd82a369830d")
-		)
-		(pin "3"
-			(uuid "1cc31a8f-6343-4e25-8be3-6b86c89764ef")
-		)
-		(pin "2"
-			(uuid "4209c79e-46b1-43c1-a57c-eaac278171b7")
-		)
-		(pin "4"
-			(uuid "1884b315-eb65-4290-a762-0313e6b7fd57")
-		)
-		(instances
-			(project "business_card"
-				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
-					(reference "SW8")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Switch:SW_MEC_5G")
-		(at 233.68 40.64 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "3717e344-74d9-4912-a761-2386bb3c0df7")
-		(property "Reference" "SW1"
-			(at 235.712 42.164 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "SW_MEC_5G"
-			(at 233.68 35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "custom_footprints:TSB008A2518A"
-			(at 233.68 35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "http://www.apem.com/int/index.php?controller=attachment&id_attachment=488"
-			(at 233.68 35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "MEC 5G single pole normally-open tactile switch"
-			(at 233.68 40.64 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "1691b99e-0ba3-4b2c-be53-b74574a4ac8c")
-		)
-		(pin "3"
-			(uuid "f3aaa74b-e0d5-44a2-a8ff-8823a026dcea")
-		)
-		(pin "2"
-			(uuid "733a222e-c289-4f87-a6b3-d99d3f0d5843")
-		)
-		(pin "4"
-			(uuid "6636671a-da3b-4d0d-89e8-8308607f2ffa")
-		)
-		(instances
-			(project "business_card"
-				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
-					(reference "SW1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "custom_symbols:P4-1615ROTCA1-0.6T")
 		(at 91.44 146.05 90)
 		(unit 1)
@@ -11480,7 +11490,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "P4-1615ROTCA1-0.6T_same_size:LED_CHIP"
 			(at 91.44 146.05 0)
 			(effects
 				(font
@@ -11594,6 +11604,74 @@
 		)
 	)
 	(symbol
+		(lib_id "Switch:SW_Push")
+		(at 132.08 46.99 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "41293a39-8fdd-4cb2-8987-5bf2076fccdc")
+		(property "Reference" "SW8"
+			(at 132.08 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SW_Push"
+			(at 132.08 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "TSB008A2526A:TSB008A2526A"
+			(at 132.08 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 132.08 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Push button switch, generic, two pins"
+			(at 132.08 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "caac9d05-9c3a-4e0c-8bb9-646805eb2618")
+		)
+		(pin "1"
+			(uuid "27b795b8-358b-4042-8ff3-a7e4b9af3953")
+		)
+		(instances
+			(project ""
+				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
+					(reference "SW8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "custom_symbols:P4-1615ROTCA1-0.6T")
 		(at 49.53 130.81 90)
 		(unit 1)
@@ -11621,7 +11699,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "P4-1615ROTCA1-0.6T_same_size:LED_CHIP"
 			(at 49.53 130.81 0)
 			(effects
 				(font
@@ -11696,7 +11774,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_PinHeader_1.00mm:PinHeader_1x05_P1.00mm_Vertical"
 			(at 52.07 64.77 0)
 			(effects
 				(font
@@ -11775,7 +11853,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "P4-1615ROTCA1-0.6T_same_size:LED_CHIP"
 			(at 119.38 101.6 0)
 			(effects
 				(font
@@ -12237,7 +12315,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "P4-1615ROTCA1-0.6T_same_size:LED_CHIP"
 			(at 63.5 161.29 0)
 			(effects
 				(font
@@ -12385,7 +12463,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "P4-1615ROTCA1-0.6T_same_size:LED_CHIP"
 			(at 119.38 161.29 0)
 			(effects
 				(font
@@ -12461,7 +12539,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "P4-1615ROTCA1-0.6T_same_size:LED_CHIP"
 			(at 105.41 161.29 0)
 			(effects
 				(font
@@ -12510,81 +12588,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Switch:SW_MEC_5G")
-		(at 233.68 59.69 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "5e83d23d-e344-4409-ba49-57f7ee07b607")
-		(property "Reference" "SW4"
-			(at 235.712 61.214 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "SW_MEC_5G"
-			(at 233.68 54.61 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "custom_footprints:TSB008A2518A"
-			(at 233.68 54.61 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "http://www.apem.com/int/index.php?controller=attachment&id_attachment=488"
-			(at 233.68 54.61 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "MEC 5G single pole normally-open tactile switch"
-			(at 233.68 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "006dae8c-6806-441d-af36-80a59059a210")
-		)
-		(pin "3"
-			(uuid "1c3bceb2-8107-4869-9f01-bcf89219eccf")
-		)
-		(pin "2"
-			(uuid "d829b1a7-2983-4f20-83e9-f68cc527580e")
-		)
-		(pin "4"
-			(uuid "9c736678-62a9-4b28-894b-04e5e177b194")
-		)
-		(instances
-			(project "business_card"
-				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
-					(reference "SW4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Connector:TestPoint")
 		(at 237.49 114.3 0)
 		(unit 1)
@@ -12612,7 +12615,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm"
 			(at 242.57 114.3 0)
 			(effects
 				(font
@@ -12646,6 +12649,80 @@
 			(project ""
 				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
 					(reference "TP1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Switch:SW_MEC_5E")
+		(at 236.22 43.18 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "611d8fbe-9a56-4818-af7b-ce91263b0147")
+		(property "Reference" "SW1"
+			(at 236.474 42.672 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SW_MEC_5E"
+			(at 236.22 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "1TS026A-2000-0553-CT:SW-SMD_4P-L2.6-W1.6-P0.75-LS3.0"
+			(at 236.22 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.apem.com/int/index.php?controller=attachment&id_attachment=1371"
+			(at 236.22 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "MEC 5E single pole normally-open tactile switch"
+			(at 236.22 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "4"
+			(uuid "60adaf8c-706f-4d3e-ac25-432f558b5511")
+		)
+		(pin "3"
+			(uuid "2fa19479-95f2-44f5-982a-b68f61003876")
+		)
+		(pin "1"
+			(uuid "31ce7ddf-9e4c-406c-bf82-d6ea32ecf0bb")
+		)
+		(pin "2"
+			(uuid "e32d073e-62a3-4b86-ae24-76f250319484")
+		)
+		(instances
+			(project "business_card"
+				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
+					(reference "SW1")
 					(unit 1)
 				)
 			)
@@ -12817,7 +12894,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "P4-1615ROTCA1-0.6T_same_size:LED_CHIP"
 			(at 63.5 175.26 0)
 			(effects
 				(font
@@ -12867,7 +12944,7 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 238.76 66.04 270)
+		(at 243.84 66.04 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -12875,7 +12952,7 @@
 		(dnp no)
 		(uuid "6e5af4c7-cd29-439c-b255-48cd06ee6ccc")
 		(property "Reference" "#PWR013"
-			(at 234.95 66.04 0)
+			(at 240.03 66.04 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12884,7 +12961,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 241.554 66.04 90)
+			(at 246.634 66.04 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12893,7 +12970,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 238.76 66.04 0)
+			(at 243.84 66.04 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12902,7 +12979,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 238.76 66.04 0)
+			(at 243.84 66.04 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12911,7 +12988,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 238.76 66.04 0)
+			(at 243.84 66.04 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12959,7 +13036,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "P4-1615ROTCA1-0.6T_same_size:LED_CHIP"
 			(at 49.53 161.29 0)
 			(effects
 				(font
@@ -13100,7 +13177,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "P4-1615ROTCA1-0.6T_same_size:LED_CHIP"
 			(at 91.44 101.6 0)
 			(effects
 				(font
@@ -13150,7 +13227,7 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 238.76 53.34 270)
+		(at 243.84 53.34 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -13158,7 +13235,7 @@
 		(dnp no)
 		(uuid "79b868dd-a025-43b1-a2dc-0aec4b33b65c")
 		(property "Reference" "#PWR017"
-			(at 234.95 53.34 0)
+			(at 240.03 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13167,7 +13244,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 241.554 53.34 90)
+			(at 246.634 53.34 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13176,7 +13253,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 238.76 53.34 0)
+			(at 243.84 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13185,7 +13262,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 238.76 53.34 0)
+			(at 243.84 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13194,7 +13271,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 238.76 53.34 0)
+			(at 243.84 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13351,7 +13428,7 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 238.76 78.74 270)
+		(at 243.84 78.74 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -13359,7 +13436,7 @@
 		(dnp no)
 		(uuid "7ef4577b-8a43-4510-ba94-974becbb8a29")
 		(property "Reference" "#PWR01"
-			(at 234.95 78.74 0)
+			(at 240.03 78.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13368,7 +13445,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 241.554 78.74 90)
+			(at 246.634 78.74 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13377,7 +13454,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 238.76 78.74 0)
+			(at 243.84 78.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13386,7 +13463,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 238.76 78.74 0)
+			(at 243.84 78.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13395,7 +13472,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 238.76 78.74 0)
+			(at 243.84 78.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13443,7 +13520,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "P4-1615ROTCA1-0.6T_same_size:LED_CHIP"
 			(at 77.47 101.6 0)
 			(effects
 				(font
@@ -13519,7 +13596,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "P4-1615ROTCA1-0.6T_same_size:LED_CHIP"
 			(at 35.56 146.05 0)
 			(effects
 				(font
@@ -13627,81 +13704,6 @@
 			(project "business_card"
 				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
 					(reference "#PWR09")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Switch:SW_MEC_5G")
-		(at 233.68 66.04 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "85448027-73a0-4c09-bf2f-45508606474f")
-		(property "Reference" "SW5"
-			(at 235.712 67.564 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "SW_MEC_5G"
-			(at 233.68 60.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "custom_footprints:TSB008A2518A"
-			(at 233.68 60.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "http://www.apem.com/int/index.php?controller=attachment&id_attachment=488"
-			(at 233.68 60.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "MEC 5G single pole normally-open tactile switch"
-			(at 233.68 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "25698b2d-4202-4c32-a07b-36069a45d10b")
-		)
-		(pin "3"
-			(uuid "3e6f4310-f9a0-40dd-84f9-9d54f1aba1fa")
-		)
-		(pin "2"
-			(uuid "bc327c0d-f947-4c39-86a7-1752274c2e15")
-		)
-		(pin "4"
-			(uuid "d4ffd560-32cd-4137-873f-65d2ff3806c4")
-		)
-		(instances
-			(project "business_card"
-				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
-					(reference "SW5")
 					(unit 1)
 				)
 			)
@@ -13912,81 +13914,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Switch:SW_MEC_5G")
-		(at 233.68 72.39 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "90213a92-7fab-4486-b4d1-d0c7fd14046d")
-		(property "Reference" "SW6"
-			(at 235.712 73.914 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "SW_MEC_5G"
-			(at 233.68 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "custom_footprints:TSB008A2518A"
-			(at 233.68 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "http://www.apem.com/int/index.php?controller=attachment&id_attachment=488"
-			(at 233.68 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "MEC 5G single pole normally-open tactile switch"
-			(at 233.68 72.39 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "40707963-721f-4fb0-9b1d-f4374d2a499b")
-		)
-		(pin "3"
-			(uuid "28c7c3ab-634a-4114-a822-632608cd7af4")
-		)
-		(pin "2"
-			(uuid "8db9a6ad-634d-47e4-bcbb-39f03ecbe4a1")
-		)
-		(pin "4"
-			(uuid "6cffa569-b7c8-4904-a43b-1bd5568121e2")
-		)
-		(instances
-			(project "business_card"
-				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
-					(reference "SW6")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "custom_symbols:P4-1615ROTCA1-0.6T")
 		(at 91.44 130.81 90)
 		(unit 1)
@@ -13994,6 +13921,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
+		(fields_autoplaced yes)
 		(uuid "927d5acc-c3d5-41d6-9414-d28e9b85f436")
 		(property "Reference" "D19"
 			(at 78.74 130.81 90)
@@ -14014,7 +13942,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "P4-1615ROTCA1-0.6T_same_size:LED_CHIP"
 			(at 91.44 130.81 0)
 			(effects
 				(font
@@ -14161,7 +14089,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "P4-1615ROTCA1-0.6T_same_size:LED_CHIP"
 			(at 105.41 101.6 0)
 			(effects
 				(font
@@ -14237,7 +14165,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "P4-1615ROTCA1-0.6T_same_size:LED_CHIP"
 			(at 91.44 161.29 0)
 			(effects
 				(font
@@ -14313,7 +14241,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "P4-1615ROTCA1-0.6T_same_size:LED_CHIP"
 			(at 105.41 175.26 0)
 			(effects
 				(font
@@ -14388,7 +14316,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm"
 			(at 166.37 29.21 0)
 			(effects
 				(font
@@ -14455,7 +14383,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "P4-1615ROTCA1-0.6T_same_size:LED_CHIP"
 			(at 35.56 130.81 0)
 			(effects
 				(font
@@ -14574,7 +14502,7 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 238.76 40.64 270)
+		(at 243.84 40.64 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -14582,7 +14510,7 @@
 		(dnp no)
 		(uuid "98212917-ce26-4117-ab6b-dd3b492c5d05")
 		(property "Reference" "#PWR021"
-			(at 234.95 40.64 0)
+			(at 240.03 40.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14591,7 +14519,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 241.554 40.64 90)
+			(at 246.634 40.64 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14600,7 +14528,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 238.76 40.64 0)
+			(at 243.84 40.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14609,7 +14537,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 238.76 40.64 0)
+			(at 243.84 40.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14618,7 +14546,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 238.76 40.64 0)
+			(at 243.84 40.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14735,7 +14663,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "P4-1615ROTCA1-0.6T_same_size:LED_CHIP"
 			(at 49.53 101.6 0)
 			(effects
 				(font
@@ -14880,7 +14808,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "P4-1615ROTCA1-0.6T_same_size:LED_CHIP"
 			(at 91.44 175.26 0)
 			(effects
 				(font
@@ -14955,7 +14883,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm"
 			(at 214.63 132.08 0)
 			(effects
 				(font
@@ -15090,7 +15018,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "USB-C-SMD_TYPE-C-6PIN-2MD-073:USB-C-SMD_TYPE-C-6PIN-2MD-073"
 			(at 254 140.97 0)
 			(effects
 				(font
@@ -15238,6 +15166,80 @@
 		)
 	)
 	(symbol
+		(lib_id "Switch:SW_MEC_5E")
+		(at 236.22 55.88 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "b218a4bd-1dfd-4364-9e83-1bcab4cf2add")
+		(property "Reference" "SW3"
+			(at 236.474 55.372 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SW_MEC_5E"
+			(at 236.22 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "1TS026A-2000-0553-CT:SW-SMD_4P-L2.6-W1.6-P0.75-LS3.0"
+			(at 236.22 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.apem.com/int/index.php?controller=attachment&id_attachment=1371"
+			(at 236.22 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "MEC 5E single pole normally-open tactile switch"
+			(at 236.22 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "4"
+			(uuid "676df990-27c3-41cd-9621-742f938676e3")
+		)
+		(pin "3"
+			(uuid "890b956c-5a67-46ad-a442-8237d4a8b979")
+		)
+		(pin "1"
+			(uuid "b3fee383-8093-4e80-8bf6-43fdbb8bec75")
+		)
+		(pin "2"
+			(uuid "ba6f1ed6-0a72-4ec7-8705-0d1b47a0eebd")
+		)
+		(instances
+			(project "business_card"
+				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
+					(reference "SW3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 142.24 54.61 0)
 		(unit 1)
@@ -15330,7 +15332,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "P4-1615ROTCA1-0.6T_same_size:LED_CHIP"
 			(at 105.41 115.57 0)
 			(effects
 				(font
@@ -15387,7 +15389,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "b4fc487e-17df-411f-bbed-7c1c1cc8ba45")
-		(property "Reference" "R8"
+		(property "Reference" "R9"
 			(at 140.462 52.07 0)
 			(effects
 				(font
@@ -15405,7 +15407,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 143.256 51.054 90)
 			(effects
 				(font
@@ -15441,7 +15443,7 @@
 		(instances
 			(project "business_card"
 				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
-					(reference "R8")
+					(reference "R9")
 					(unit 1)
 				)
 			)
@@ -15475,7 +15477,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "P4-1615ROTCA1-0.6T_same_size:LED_CHIP"
 			(at 119.38 130.81 0)
 			(effects
 				(font
@@ -15550,7 +15552,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm"
 			(at 156.21 109.22 0)
 			(effects
 				(font
@@ -15590,6 +15592,80 @@
 		)
 	)
 	(symbol
+		(lib_id "Switch:SW_MEC_5E")
+		(at 236.22 74.93 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "b8df65a1-f40a-46c7-be37-614633c96e67")
+		(property "Reference" "SW6"
+			(at 236.474 74.422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SW_MEC_5E"
+			(at 236.22 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "1TS026A-2000-0553-CT:SW-SMD_4P-L2.6-W1.6-P0.75-LS3.0"
+			(at 236.22 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.apem.com/int/index.php?controller=attachment&id_attachment=1371"
+			(at 236.22 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "MEC 5E single pole normally-open tactile switch"
+			(at 236.22 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "4"
+			(uuid "b393e8eb-7685-4573-9158-07515e641de8")
+		)
+		(pin "3"
+			(uuid "f5dc0346-42c4-4eb8-aa6d-66b20339aa7d")
+		)
+		(pin "1"
+			(uuid "1d28d8bf-f18e-4c40-ad0a-2444816996f6")
+		)
+		(pin "2"
+			(uuid "239662ce-c81c-43e9-9ab4-8089054d4c9f")
+		)
+		(instances
+			(project "business_card"
+				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
+					(reference "SW6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "custom_symbols:P4-1615ROTCA1-0.6T")
 		(at 77.47 130.81 90)
 		(unit 1)
@@ -15597,6 +15673,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
+		(fields_autoplaced yes)
 		(uuid "bb0f76e6-d398-462e-9f86-b59b73b11821")
 		(property "Reference" "D18"
 			(at 64.77 130.81 90)
@@ -15617,7 +15694,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "P4-1615ROTCA1-0.6T_same_size:LED_CHIP"
 			(at 77.47 130.81 0)
 			(effects
 				(font
@@ -15761,7 +15838,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm"
 			(at 259.08 119.38 0)
 			(effects
 				(font
@@ -15894,7 +15971,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "P4-1615ROTCA1-0.6T_same_size:LED_CHIP"
 			(at 77.47 161.29 0)
 			(effects
 				(font
@@ -15970,7 +16047,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "P4-1615ROTCA1-0.6T_same_size:LED_CHIP"
 			(at 49.53 146.05 0)
 			(effects
 				(font
@@ -16046,7 +16123,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "P4-1615ROTCA1-0.6T_same_size:LED_CHIP"
 			(at 77.47 115.57 0)
 			(effects
 				(font
@@ -16122,7 +16199,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "P4-1615ROTCA1-0.6T_same_size:LED_CHIP"
 			(at 119.38 115.57 0)
 			(effects
 				(font
@@ -16198,7 +16275,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "P4-1615ROTCA1-0.6T_same_size:LED_CHIP"
 			(at 35.56 161.29 0)
 			(effects
 				(font
@@ -16274,7 +16351,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "P4-1615ROTCA1-0.6T_same_size:LED_CHIP"
 			(at 105.41 130.81 0)
 			(effects
 				(font
@@ -16549,7 +16626,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm"
 			(at 264.16 119.38 0)
 			(effects
 				(font
@@ -16616,7 +16693,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "P4-1615ROTCA1-0.6T_same_size:LED_CHIP"
 			(at 63.5 101.6 0)
 			(effects
 				(font
@@ -16734,8 +16811,82 @@
 		)
 	)
 	(symbol
+		(lib_id "Switch:SW_MEC_5E")
+		(at 236.22 68.58 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "ef0917d2-7eb4-432c-ad53-ae43f935cf07")
+		(property "Reference" "SW5"
+			(at 236.474 68.072 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SW_MEC_5E"
+			(at 236.22 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "1TS026A-2000-0553-CT:SW-SMD_4P-L2.6-W1.6-P0.75-LS3.0"
+			(at 236.22 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.apem.com/int/index.php?controller=attachment&id_attachment=1371"
+			(at 236.22 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "MEC 5E single pole normally-open tactile switch"
+			(at 236.22 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "4"
+			(uuid "9ddf26f1-6a23-40a2-80cb-5750a002b465")
+		)
+		(pin "3"
+			(uuid "cb9fb286-a5bc-463e-b7ff-90171d0c8663")
+		)
+		(pin "1"
+			(uuid "38dd2df4-04e7-41ed-86cf-f59b0dfd9294")
+		)
+		(pin "2"
+			(uuid "e9364bc9-ee73-4226-bbcf-57a268309583")
+		)
+		(instances
+			(project "business_card"
+				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
+					(reference "SW5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+3.3V")
-		(at 238.76 72.39 270)
+		(at 243.84 72.39 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -16743,7 +16894,7 @@
 		(dnp no)
 		(uuid "f43b9332-112a-45f5-a93f-efd4d55a16c1")
 		(property "Reference" "#PWR03"
-			(at 234.95 72.39 0)
+			(at 240.03 72.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16752,7 +16903,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 241.554 72.39 90)
+			(at 246.634 72.39 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16761,7 +16912,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 238.76 72.39 0)
+			(at 243.84 72.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16770,7 +16921,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 238.76 72.39 0)
+			(at 243.84 72.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16779,7 +16930,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 238.76 72.39 0)
+			(at 243.84 72.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16827,7 +16978,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "P4-1615ROTCA1-0.6T_same_size:LED_CHIP"
 			(at 91.44 115.57 0)
 			(effects
 				(font
@@ -16870,6 +17021,80 @@
 			(project "business_card"
 				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
 					(reference "D12")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Switch:SW_MEC_5E")
+		(at 236.22 62.23 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "f56ea7c2-671c-4e6c-baa0-472177b7874b")
+		(property "Reference" "SW4"
+			(at 236.474 61.722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SW_MEC_5E"
+			(at 236.22 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "1TS026A-2000-0553-CT:SW-SMD_4P-L2.6-W1.6-P0.75-LS3.0"
+			(at 236.22 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.apem.com/int/index.php?controller=attachment&id_attachment=1371"
+			(at 236.22 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "MEC 5E single pole normally-open tactile switch"
+			(at 236.22 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "4"
+			(uuid "dcc666c4-8436-4caf-aab6-0769f2bc0dee")
+		)
+		(pin "3"
+			(uuid "e3a8f479-04cb-4fa9-902d-4def880eea0a")
+		)
+		(pin "1"
+			(uuid "7d05066f-de4d-4620-b57c-308e11add433")
+		)
+		(pin "2"
+			(uuid "23b36217-887e-43ba-9516-18ed8ba85858")
+		)
+		(instances
+			(project "business_card"
+				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
+					(reference "SW4")
 					(unit 1)
 				)
 			)

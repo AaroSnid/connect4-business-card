@@ -1,4 +1,18 @@
-27149891660295363
+27155213097205867
+1TS026A-2000-0553-CT
+SW-SMD_4P-L2.6-W1.6-P0.75-LS3.0
+
+
+0
+4
+4
+1TS026A-2000-0553-CT
+Untitled
+
+
+0
+0
+0
 282837_2
 TE_282837-2
 
@@ -75592,6 +75606,13 @@ DIL DIP PDIP 2.54mm 7.62mm 300mil
 0
 4
 4
+P4-1615ROTCA1-0.6T_same_size
+LED_CHIP
+
+
+0
+4
+4
 PEC11R_4215F_S0024
 XDCR_PEC11R-4215F-S0024
 
@@ -100512,6 +100533,13 @@ VREG_V62_16624-01YE
 0
 11
 11
+TSB008A2526A
+TSB008A2526A
+
+
+0
+2
+2
 TerminalBlock
 TerminalBlock_Altech_AK300-2_P5.00mm
 Altech AK300 terminal block, pitch 5.0mm, 45 degree angled, see http://www.mouser.com/ds/2/16/PCBMETRC-24178.pdf
@@ -106791,6 +106819,13 @@ igbt diode module
 0
 25
 25
+USB-C-SMD_TYPE-C-6PIN-2MD-073
+USB-C-SMD_TYPE-C-6PIN-2MD-073
+
+
+0
+16
+14
 USBC-16_footprints
 CONN16_C16PIN_SHN
 
@@ -107583,26 +107618,12 @@ Varistor VF
 2
 2
 custom_footprints
-TSB008A2518A
-
-
-0
-0
-0
-custom_footprints
 TVAF06-N020C2-R
 
 
 0
-0
-0
-custom_footprints
-Untitled
-
-
-0
-0
-0
+2
+2
 footprints
 CONN_S2B-PH-K-S_JST
 
