@@ -3266,147 +3266,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Power_Supervisor:TPS3839DBZ"
-			(pin_names
-				(offset 0.254)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 2.54 8.89 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Value" "TPS3839DBZ"
-				(at 2.54 6.35 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "http://www.ti.com/lit/ds/sbvs193d/sbvs193d.pdf"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "150-nA, Ultralow Power, Supply Voltage Monitor, SOT-23"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "supply voltage supervisor"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "SOT?23*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "TPS3839DBZ_0_1"
-				(rectangle
-					(start -2.54 5.08)
-					(end 7.62 -5.08)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-			)
-			(symbol "TPS3839DBZ_1_1"
-				(pin power_in line
-					(at 0 7.62 270)
-					(length 2.54)
-					(name "VDD"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at 0 -7.62 90)
-					(length 2.54)
-					(name "GND"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin output line
-					(at 10.16 0 180)
-					(length 2.54)
-					(name "~{RESET}"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "Regulator_Linear:MCP1700x-300xxTT"
 			(pin_names
 				(offset 0.254)
@@ -5008,12 +4867,6 @@
 		(uuid "854a3844-be1f-4c8c-a8ca-799cc394b889")
 	)
 	(junction
-		(at 213.36 139.7)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "85c0ff32-4432-41d9-aa4e-010eb9b302c4")
-	)
-	(junction
 		(at 31.75 156.21)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -5806,16 +5659,6 @@
 			(type default)
 		)
 		(uuid "0bd7041f-0788-4cab-82e3-42e9094153c0")
-	)
-	(wire
-		(pts
-			(xy 204.47 151.13) (xy 209.55 151.13)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0cbb3cc5-cdf2-4be3-af78-fdb4ade973e7")
 	)
 	(wire
 		(pts
@@ -7939,16 +7782,6 @@
 	)
 	(wire
 		(pts
-			(xy 204.47 151.13) (xy 204.47 149.86)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bacb2cf1-5cf0-441e-9c5b-ba38e25bbe64")
-	)
-	(wire
-		(pts
 			(xy 130.81 170.18) (xy 124.46 170.18)
 		)
 		(stroke
@@ -8739,16 +8572,6 @@
 	)
 	(wire
 		(pts
-			(xy 213.36 139.7) (xy 212.09 139.7)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fba1e53c-3aff-4a47-882c-cd039d6dd3e9")
-	)
-	(wire
-		(pts
 			(xy 59.69 106.68) (xy 55.88 106.68)
 		)
 		(stroke
@@ -8836,16 +8659,6 @@
 			(justify left bottom)
 		)
 		(uuid "1196b836-b18f-4ea5-b977-166b07f5b466")
-	)
-	(label "NRST"
-		(at 209.55 151.13 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "13f6424f-a93b-4717-8d2a-53b9a5d1f817")
 	)
 	(label "COL6"
 		(at 139.7 90.17 0)
@@ -9828,73 +9641,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:VDD")
-		(at 213.36 139.7 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "0ca6b769-aabf-4f01-baa3-94159b401a5f")
-		(property "Reference" "#PWR019"
-			(at 209.55 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "VDD"
-			(at 217.17 139.6999 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 213.36 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 213.36 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"VDD\""
-			(at 213.36 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "8a09e14e-b5a6-4f6e-9f19-8c6adfdb395b")
-		)
-		(instances
-			(project "business_card"
-				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
-					(reference "#PWR019")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "custom_symbols:P4-1615ROTCA1-0.6T")
 		(at 35.56 175.26 90)
 		(unit 1)
@@ -10329,71 +10075,6 @@
 			(project "business_card"
 				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
 					(reference "R7")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 196.85 139.7 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "160a133e-d802-4194-aaeb-d7fb34e35409")
-		(property "Reference" "#PWR024"
-			(at 196.85 146.05 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 196.85 143.764 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 196.85 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 196.85 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 196.85 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "1d251555-4380-43de-b759-269108f4da1a")
-		)
-		(instances
-			(project "business_card"
-				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
-					(reference "#PWR024")
 					(unit 1)
 				)
 			)
@@ -10980,7 +10661,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "23d14ef7-569c-475c-bc84-ba15ed8c75e7")
-		(property "Reference" "C1"
+		(property "Reference" "C2"
 			(at 223.774 132.08 0)
 			(effects
 				(font
@@ -11034,7 +10715,7 @@
 		(instances
 			(project "business_card"
 				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
-					(reference "C1")
+					(reference "C2")
 					(unit 1)
 				)
 			)
@@ -11329,7 +11010,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "31ae3a75-aa20-4de4-990f-c76677d640fc")
-		(property "Reference" "C3"
+		(property "Reference" "C4"
 			(at 258.572 111.76 0)
 			(effects
 				(font
@@ -11379,75 +11060,6 @@
 		)
 		(pin "2"
 			(uuid "751fb65c-9fb9-47fb-9c8d-a4974739f392")
-		)
-		(instances
-			(project "business_card"
-				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
-					(reference "C3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 213.36 143.51 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "3280253a-498d-4923-b055-77ca206932a9")
-		(property "Reference" "C4"
-			(at 216.281 142.367 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "1uF"
-			(at 216.281 144.399 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 212.3948 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 213.36 143.51 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 213.36 143.51 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "62d9b944-44e8-4dce-a1ab-2ebd7badc4be")
-		)
-		(pin "2"
-			(uuid "9600150c-b0d1-45ee-be81-4a926c2927bb")
 		)
 		(instances
 			(project "business_card"
@@ -11605,71 +11217,6 @@
 			(project "business_card"
 				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
 					(reference "D26")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 213.36 147.32 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "3cf26e9a-ea26-44fc-8d7f-e617933be88d")
-		(property "Reference" "#PWR025"
-			(at 213.36 153.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 213.36 151.384 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 213.36 147.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 213.36 147.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 213.36 147.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "a724ae49-e11a-470a-8f4e-60e9bc4291df")
-		)
-		(instances
-			(project "business_card"
-				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
-					(reference "#PWR025")
 					(unit 1)
 				)
 			)
@@ -12502,78 +12049,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Power_Supervisor:TPS3839DBZ")
-		(at 204.47 139.7 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "5bafc9d2-fc10-4063-bd53-4c9007b66282")
-		(property "Reference" "U3"
-			(at 205.74 133.604 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "TPS3839DBZ"
-			(at 210.312 135.89 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-			(at 204.47 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "http://www.ti.com/lit/ds/sbvs193d/sbvs193d.pdf"
-			(at 204.47 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "150-nA, Ultralow Power, Supply Voltage Monitor, SOT-23"
-			(at 204.47 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "d10c02dc-6ae9-484d-a025-aa373b94b91b")
-		)
-		(pin "3"
-			(uuid "2f3d6261-9c86-41cc-b6d2-7c6adab12ee3")
-		)
-		(pin "2"
-			(uuid "4532c1f2-4354-48b4-8353-7c7fb8e26f4e")
-		)
-		(instances
-			(project "business_card"
-				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
-					(reference "U3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "custom_symbols:P4-1615ROTCA1-0.6T")
 		(at 119.38 161.29 90)
 		(unit 1)
@@ -12874,7 +12349,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "6a1660d0-dc58-4925-be3e-21db26a73a11")
-		(property "Reference" "C2"
+		(property "Reference" "C3"
 			(at 240.284 116.84 0)
 			(effects
 				(font
@@ -12928,7 +12403,7 @@
 		(instances
 			(project "business_card"
 				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
-					(reference "C2")
+					(reference "C3")
 					(unit 1)
 				)
 			)
@@ -13010,7 +12485,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "6bb842d6-db7b-42d1-a402-90332d36e1ea")
-		(property "Reference" "C10"
+		(property "Reference" "C9"
 			(at 84.074 34.29 0)
 			(effects
 				(font
@@ -13064,7 +12539,7 @@
 		(instances
 			(project "business_card"
 				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
-					(reference "C10")
+					(reference "C9")
 					(unit 1)
 				)
 			)
@@ -14448,7 +13923,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "96c50951-fda4-407f-a2b7-9b8f35c7dcec")
-		(property "Reference" "C9"
+		(property "Reference" "C8"
 			(at 73.914 34.29 0)
 			(effects
 				(font
@@ -14502,7 +13977,7 @@
 		(instances
 			(project "business_card"
 				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
-					(reference "C9")
+					(reference "C8")
 					(unit 1)
 				)
 			)
@@ -15182,7 +14657,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "b1e70648-8500-443c-b810-c0be8bf2f871")
-		(property "Reference" "C5"
+		(property "Reference" "C1"
 			(at 232.41 133.858 0)
 			(effects
 				(font
@@ -15236,7 +14711,7 @@
 		(instances
 			(project "business_card"
 				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
-					(reference "C5")
+					(reference "C1")
 					(unit 1)
 				)
 			)
@@ -15895,7 +15370,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "bbb32afe-05db-41d5-8ba7-1508458fe0db")
-		(property "Reference" "C6"
+		(property "Reference" "C5"
 			(at 37.084 34.29 0)
 			(effects
 				(font
@@ -15949,7 +15424,7 @@
 		(instances
 			(project ""
 				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
-					(reference "C6")
+					(reference "C5")
 					(unit 1)
 				)
 			)
@@ -16687,7 +16162,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "d7334e5c-4767-496e-8483-08e874a25252")
-		(property "Reference" "C8"
+		(property "Reference" "C7"
 			(at 59.944 34.29 0)
 			(effects
 				(font
@@ -16741,7 +16216,7 @@
 		(instances
 			(project "business_card"
 				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
-					(reference "C8")
+					(reference "C7")
 					(unit 1)
 				)
 			)
@@ -16898,7 +16373,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "e2d9f8d9-f37c-411b-ba41-4ea55567f420")
-		(property "Reference" "C7"
+		(property "Reference" "C6"
 			(at 48.514 34.29 0)
 			(effects
 				(font
@@ -16952,7 +16427,7 @@
 		(instances
 			(project "business_card"
 				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
-					(reference "C7")
+					(reference "C6")
 					(unit 1)
 				)
 			)
@@ -16967,7 +16442,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "ee8ae7be-5f11-4432-bc42-da60d6a97e5c")
-		(property "Reference" "C11"
+		(property "Reference" "C10"
 			(at 95.504 34.29 0)
 			(effects
 				(font
@@ -17021,7 +16496,7 @@
 		(instances
 			(project "business_card"
 				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
-					(reference "C11")
+					(reference "C10")
 					(unit 1)
 				)
 			)
