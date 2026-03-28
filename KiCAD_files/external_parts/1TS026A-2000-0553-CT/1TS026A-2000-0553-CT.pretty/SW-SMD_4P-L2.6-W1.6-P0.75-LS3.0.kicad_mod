@@ -74,8 +74,8 @@
 		)
 	)
 	(fp_line
-		(start -0.875 -0.8)
-		(end 0.875 -0.8)
+		(start -0.79 -0.8)
+		(end 0.78 -0.8)
 		(stroke
 			(width 0.254)
 			(type default)
@@ -84,8 +84,8 @@
 		(uuid "af6f8877-667d-4119-887e-c7656279e0ad")
 	)
 	(fp_line
-		(start -0.875 0.8)
-		(end 0.875 0.8)
+		(start -0.79 0.8)
+		(end 0.78 0.8)
 		(stroke
 			(width 0.254)
 			(type default)

@@ -74,8 +74,8 @@
 		)
 	)
 	(fp_line
-		(start -4.5 1.394)
-		(end -4.5 -0.594)
+		(start -4.5 1.21)
+		(end -4.5 -0.52)
 		(stroke
 			(width 0.254)
 			(type default)
@@ -85,7 +85,7 @@
 	)
 	(fp_line
 		(start -4.5 4.975)
-		(end -4.5 3.356)
+		(end -4.5 3.56)
 		(stroke
 			(width 0.254)
 			(type default)
@@ -104,8 +104,8 @@
 		(uuid "a5ae7b7f-b2c4-4024-8632-7caac5aa3e55")
 	)
 	(fp_line
-		(start 4.572 1.397)
-		(end 4.572 -0.597)
+		(start 4.572 1.21)
+		(end 4.572 -0.5)
 		(stroke
 			(width 0.254)
 			(type default)
@@ -115,7 +115,7 @@
 	)
 	(fp_line
 		(start 4.572 4.826)
-		(end 4.572 3.353)
+		(end 4.572 3.59)
 		(stroke
 			(width 0.254)
 			(type default)
