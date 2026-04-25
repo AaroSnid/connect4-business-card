@@ -1,9 +1,11 @@
 # Connect 4 Business Card
 
-The **Connect 4 Microcontroller Edition** is a portable, handheld gaming device that allows a user to play the classic game of Connect 4 against an onboard AI bot. Built on the STM32 platform, it features a custom 7x6 bicolor LED grid and a low-leakage power system designed for long-lasting battery operation.
+This business card doubles as a portable, handheld gaming device that allows a user to play game of Connect 4 against an onboard AI bot. Built on the STM32 platform, it features a custom 7x6 bicolor LED grid and a low-leakage power system designed for long-lasting battery operation.
 
-> **Status:** V1.0 Release 
-> **Hardware Version:** Rev0
+> **Status:** Hardware V1.0 Release 
+> **Hardware Version:** V1.0
+
+![PCB V1.0 3D Model](./images/pcb_3D_model_V1.0.png)
 
 ---
 
