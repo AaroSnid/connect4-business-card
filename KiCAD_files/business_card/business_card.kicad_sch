@@ -3198,10 +3198,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Switch:SW_Push"
-			(pin_numbers
-				(hide yes)
-			)
+		(symbol "Switch:SW_MEC_5E"
 			(pin_names
 				(offset 1.016)
 				(hide yes)
@@ -3212,7 +3209,7 @@
 			(in_pos_files yes)
 			(duplicate_pin_numbers_are_jumpers no)
 			(property "Reference" "SW"
-				(at 1.27 2.54 0)
+				(at 0.635 5.715 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -3222,8 +3219,8 @@
 					(justify left)
 				)
 			)
-			(property "Value" "SW_Push"
-				(at 0 -1.524 0)
+			(property "Value" "SW_MEC_5E"
+				(at 0 -3.175 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -3233,7 +3230,7 @@
 				)
 			)
 			(property "Footprint" ""
-				(at 0 5.08 0)
+				(at 0 7.62 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
@@ -3243,8 +3240,8 @@
 					)
 				)
 			)
-			(property "Datasheet" ""
-				(at 0 5.08 0)
+			(property "Datasheet" "https://www.apem.com/medias/download/MEC_switches_serie_MULTIMEC5E.pdf"
+				(at 0 7.62 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
@@ -3254,7 +3251,7 @@
 					)
 				)
 			)
-			(property "Description" "Push button switch, generic, two pins"
+			(property "Description" "MEC 5E single pole normally-open tactile switch"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -3276,9 +3273,44 @@
 					)
 				)
 			)
-			(symbol "SW_Push_0_1"
+			(property "ki_fp_filters" "SW*MEC*5G*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "SW_MEC_5E_0_1"
+				(polyline
+					(pts
+						(xy -2.54 0) (xy -2.54 2.54) (xy -2.286 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.286 3.81) (xy 2.286 3.81)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
 				(circle
-					(center -2.032 0)
+					(center -1.778 2.54)
 					(radius 0.508)
 					(stroke
 						(width 0)
@@ -3290,7 +3322,7 @@
 				)
 				(polyline
 					(pts
-						(xy 0 1.27) (xy 0 3.048)
+						(xy 0 3.81) (xy 0 5.588)
 					)
 					(stroke
 						(width 0)
@@ -3301,7 +3333,7 @@
 					)
 				)
 				(circle
-					(center 2.032 0)
+					(center 1.778 2.54)
 					(radius 0.508)
 					(stroke
 						(width 0)
@@ -3313,7 +3345,7 @@
 				)
 				(polyline
 					(pts
-						(xy 2.54 1.27) (xy -2.54 1.27)
+						(xy 2.54 0) (xy 2.54 2.54) (xy 2.286 2.54)
 					)
 					(stroke
 						(width 0)
@@ -3324,7 +3356,7 @@
 					)
 				)
 				(pin passive line
-					(at -5.08 0 0)
+					(at -5.08 2.54 0)
 					(length 2.54)
 					(name "1"
 						(effects
@@ -3342,7 +3374,7 @@
 					)
 				)
 				(pin passive line
-					(at 5.08 0 180)
+					(at -5.08 0 0)
 					(length 2.54)
 					(name "2"
 						(effects
@@ -3352,6 +3384,42 @@
 						)
 					)
 					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "K"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 2.54 180)
+					(length 2.54)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3619,7 +3687,7 @@
 	)
 	(rectangle
 		(start 218.44 35.56)
-		(end 255.27 60.96)
+		(end 254 68.58)
 		(stroke
 			(width 0)
 			(type default)
@@ -3771,7 +3839,7 @@
 	)
 	(text_box "NFC & Antenna"
 		(exclude_from_sim no)
-		(at 204.47 116.84 0)
+		(at 204.47 116.7017 0)
 		(size 17.78 3.9483)
 		(margins 0.9525 0.9525 0.9525 0.9525)
 		(stroke
@@ -5651,16 +5719,6 @@
 	)
 	(wire
 		(pts
-			(xy 220.98 39.37) (xy 232.41 39.37)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2a20ac62-028f-40bf-8916-0a4c899b9691")
-	)
-	(wire
-		(pts
 			(xy 62.23 181.61) (xy 62.23 168.91)
 		)
 		(stroke
@@ -5781,16 +5839,6 @@
 	)
 	(wire
 		(pts
-			(xy 220.98 54.61) (xy 232.41 54.61)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "333e6ffc-883a-48d8-84d3-2103834d226f")
-	)
-	(wire
-		(pts
 			(xy 60.96 74.93) (xy 53.34 74.93)
 		)
 		(stroke
@@ -5831,7 +5879,7 @@
 	)
 	(wire
 		(pts
-			(xy 245.11 39.37) (xy 242.57 39.37)
+			(xy 245.11 43.18) (xy 242.57 43.18)
 		)
 		(stroke
 			(width 0)
@@ -6431,6 +6479,16 @@
 	)
 	(wire
 		(pts
+			(xy 219.71 63.5) (xy 232.41 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "55ed8f42-85fe-49a9-a715-84e82732c196")
+	)
+	(wire
+		(pts
 			(xy 113.03 158.75) (xy 113.03 160.02)
 		)
 		(stroke
@@ -6788,6 +6846,16 @@
 			(type default)
 		)
 		(uuid "68c2b06f-cf38-4872-bd0e-99c53a77f961")
+	)
+	(wire
+		(pts
+			(xy 242.57 53.34) (xy 245.11 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "695748bd-01e0-46fb-bd66-b61904c68e6d")
 	)
 	(wire
 		(pts
@@ -7331,16 +7399,6 @@
 	)
 	(wire
 		(pts
-			(xy 245.11 46.99) (xy 242.57 46.99)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "87e3ec30-c205-4250-b700-c46ca33e5967")
-	)
-	(wire
-		(pts
 			(xy 71.12 168.91) (xy 67.31 168.91)
 		)
 		(stroke
@@ -7388,6 +7446,16 @@
 			(type default)
 		)
 		(uuid "8b1cf302-fc68-460d-bb5b-9ba19498d59c")
+	)
+	(wire
+		(pts
+			(xy 219.71 53.34) (xy 232.41 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8daf9bf9-33ec-423f-9802-edb02a86a0bf")
 	)
 	(wire
 		(pts
@@ -8591,16 +8659,6 @@
 	)
 	(wire
 		(pts
-			(xy 220.98 46.99) (xy 232.41 46.99)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d3716de4-c150-4892-9afb-7f55a5331faa")
-	)
-	(wire
-		(pts
 			(xy 130.81 133.35) (xy 124.46 133.35)
 		)
 		(stroke
@@ -9151,7 +9209,7 @@
 	)
 	(wire
 		(pts
-			(xy 245.11 54.61) (xy 242.57 54.61)
+			(xy 245.11 63.5) (xy 242.57 63.5)
 		)
 		(stroke
 			(width 0)
@@ -9371,6 +9429,16 @@
 	)
 	(wire
 		(pts
+			(xy 219.71 43.18) (xy 232.41 43.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fef01b8b-60e8-452a-87cd-09cdf4a00204")
+	)
+	(wire
+		(pts
 			(xy 99.06 171.45) (xy 95.25 171.45)
 		)
 		(stroke
@@ -9470,7 +9538,7 @@
 		(uuid "34bf2a57-4cb3-4b4a-9a12-f21c9d61e1dd")
 	)
 	(label "INPUT_DOWN"
-		(at 220.98 39.37 0)
+		(at 219.71 43.18 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -9520,7 +9588,7 @@
 		(uuid "5a629e3f-bf7e-44ae-b36f-678d6917d259")
 	)
 	(label "INPUT_RIGHT"
-		(at 220.98 54.61 0)
+		(at 219.71 63.5 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -9850,7 +9918,7 @@
 		(uuid "fb1159df-54ae-491c-acf2-fc8bc65fbd04")
 	)
 	(label "INPUT_LEFT"
-		(at 220.98 46.99 0)
+		(at 219.71 53.34 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -11477,6 +11545,91 @@
 		)
 	)
 	(symbol
+		(lib_id "Switch:SW_MEC_5E")
+		(at 237.49 45.72 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "1dc532f5-95e8-4eaa-b136-df1a626e3434")
+		(property "Reference" "SW1"
+			(at 237.49 37.338 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "CS1210F260"
+			(at 237.236 39.116 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "CS1210F260:SW4_CS1210F260_CRS"
+			(at 237.49 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.apem.com/medias/download/MEC_switches_serie_MULTIMEC5E.pdf"
+			(at 237.49 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "MEC 5E single pole normally-open tactile switch"
+			(at 237.49 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "3"
+			(uuid "b6cac5e2-5cb5-47f2-b829-83e7338f8a5c")
+		)
+		(pin "4"
+			(uuid "d5a463e0-0b7c-49c5-a160-214eb6c22519")
+		)
+		(pin "2"
+			(uuid "1c921716-bf03-4df2-bff2-e50d00b5d5e8")
+		)
+		(pin "1"
+			(uuid "cafa9ad6-59ba-4428-9c79-51c1109bac5d")
+		)
+		(instances
+			(project "business_card"
+				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
+					(reference "SW1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 227.33 93.98 0)
 		(unit 1)
@@ -12954,85 +13107,6 @@
 			(project "business_card"
 				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
 					(reference "D50")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Switch:SW_Push")
-		(at 237.49 39.37 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "39a8096d-1be6-4222-9313-8cc04cf31ee0")
-		(property "Reference" "SW1"
-			(at 237.49 40.894 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "SW_Push"
-			(at 237.49 42.672 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "TSB008A2526A:TSB008A2526A"
-			(at 237.49 34.29 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 237.49 34.29 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Push button switch, generic, two pins"
-			(at 237.49 39.37 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "d0b7142c-0900-43a7-a1ce-54956f718d24")
-		)
-		(pin "1"
-			(uuid "5b15deb9-db4d-4bae-af1f-6b90e3a9f6aa")
-		)
-		(instances
-			(project "business_card"
-				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
-					(reference "SW1")
 					(unit 1)
 				)
 			)
@@ -16402,7 +16476,7 @@
 	)
 	(symbol
 		(lib_id "power:VDD")
-		(at 245.11 46.99 270)
+		(at 245.11 53.34 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -16413,7 +16487,7 @@
 		(fields_autoplaced yes)
 		(uuid "86da969e-e391-46bd-8a45-8cc400ff5c3e")
 		(property "Reference" "#PWR01"
-			(at 241.3 46.99 0)
+			(at 241.3 53.34 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16424,7 +16498,7 @@
 			)
 		)
 		(property "Value" "VDD"
-			(at 248.92 46.9899 90)
+			(at 248.92 53.3399 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -16435,7 +16509,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 245.11 46.99 0)
+			(at 245.11 53.34 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16446,7 +16520,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 245.11 46.99 0)
+			(at 245.11 53.34 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16457,7 +16531,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"VDD\""
-			(at 245.11 46.99 0)
+			(at 245.11 53.34 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17010,6 +17084,91 @@
 		)
 	)
 	(symbol
+		(lib_id "Switch:SW_MEC_5E")
+		(at 237.49 66.04 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "8fcca264-92c8-4349-831a-065fe0c7cacf")
+		(property "Reference" "SW3"
+			(at 237.49 57.658 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "CS1210F260"
+			(at 237.236 59.436 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "CS1210F260:SW4_CS1210F260_CRS"
+			(at 237.49 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.apem.com/medias/download/MEC_switches_serie_MULTIMEC5E.pdf"
+			(at 237.49 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "MEC 5E single pole normally-open tactile switch"
+			(at 237.49 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "3"
+			(uuid "46a16eae-c8a5-45c3-a7d0-d721a50d6313")
+		)
+		(pin "4"
+			(uuid "8f81019b-5c22-4d62-a89c-13ba3f174285")
+		)
+		(pin "2"
+			(uuid "bc2f58cd-3f17-4209-a340-c8d01c0789d8")
+		)
+		(pin "1"
+			(uuid "09cf6e24-c005-4aa6-9373-3c774ddeaa23")
+		)
+		(instances
+			(project "business_card"
+				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
+					(reference "SW3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:LED")
 		(at 67.31 113.03 90)
 		(unit 1)
@@ -17188,85 +17347,6 @@
 			(project "business_card"
 				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
 					(reference "D82")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Switch:SW_Push")
-		(at 237.49 54.61 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "9295b9f9-2c9c-4fb4-9a6d-219a83317e14")
-		(property "Reference" "SW3"
-			(at 237.49 56.134 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "SW_Push"
-			(at 237.49 57.912 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "TSB008A2526A:TSB008A2526A"
-			(at 237.49 49.53 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 237.49 49.53 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Push button switch, generic, two pins"
-			(at 237.49 54.61 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "dbe96944-ae80-4d8c-894a-82630ede2900")
-		)
-		(pin "1"
-			(uuid "9825bf8c-e068-49dc-9c44-fae7e9b7d8b2")
-		)
-		(instances
-			(project "business_card"
-				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
-					(reference "SW3")
 					(unit 1)
 				)
 			)
@@ -18876,7 +18956,7 @@
 	)
 	(symbol
 		(lib_id "power:VDD")
-		(at 245.11 39.37 270)
+		(at 245.11 43.18 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -18887,7 +18967,7 @@
 		(fields_autoplaced yes)
 		(uuid "bab8dd5c-8784-4b43-b9eb-0abd4eb307ff")
 		(property "Reference" "#PWR06"
-			(at 241.3 39.37 0)
+			(at 241.3 43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18898,7 +18978,7 @@
 			)
 		)
 		(property "Value" "VDD"
-			(at 248.92 39.3699 90)
+			(at 248.92 43.1799 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -18909,7 +18989,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 245.11 39.37 0)
+			(at 245.11 43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18920,7 +19000,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 245.11 39.37 0)
+			(at 245.11 43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18931,7 +19011,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"VDD\""
-			(at 245.11 39.37 0)
+			(at 245.11 43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19588,7 +19668,7 @@
 	)
 	(symbol
 		(lib_id "power:VDD")
-		(at 245.11 54.61 270)
+		(at 245.11 63.5 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -19599,7 +19679,7 @@
 		(fields_autoplaced yes)
 		(uuid "ccdf1d04-f7f1-4c02-8fe0-7d5939417fe6")
 		(property "Reference" "#PWR03"
-			(at 241.3 54.61 0)
+			(at 241.3 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19610,7 +19690,7 @@
 			)
 		)
 		(property "Value" "VDD"
-			(at 248.92 54.6099 90)
+			(at 248.92 63.4999 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -19621,7 +19701,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 245.11 54.61 0)
+			(at 245.11 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19632,7 +19712,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 245.11 54.61 0)
+			(at 245.11 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19643,7 +19723,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"VDD\""
-			(at 245.11 54.61 0)
+			(at 245.11 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20717,6 +20797,91 @@
 		)
 	)
 	(symbol
+		(lib_id "Switch:SW_MEC_5E")
+		(at 237.49 55.88 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "ec473a77-6c82-49c0-896d-1599e078982a")
+		(property "Reference" "SW2"
+			(at 237.49 47.498 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "CS1210F260"
+			(at 237.236 49.276 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "CS1210F260:SW4_CS1210F260_CRS"
+			(at 237.49 48.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.apem.com/medias/download/MEC_switches_serie_MULTIMEC5E.pdf"
+			(at 237.49 48.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "MEC 5E single pole normally-open tactile switch"
+			(at 237.49 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "3"
+			(uuid "964a546c-a225-4145-92af-1af373abe92f")
+		)
+		(pin "4"
+			(uuid "3b3a86f2-2db4-405b-a86b-91f2d5cfa055")
+		)
+		(pin "2"
+			(uuid "6e67f177-5a92-44c6-bf26-7e9142ee9b88")
+		)
+		(pin "1"
+			(uuid "81f6012d-6467-4a04-8b50-7a46490a4d92")
+		)
+		(instances
+			(project "business_card"
+				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
+					(reference "SW2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 260.35 135.89 0)
 		(unit 1)
@@ -21491,85 +21656,6 @@
 			(project "business_card"
 				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
 					(reference "D63")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Switch:SW_Push")
-		(at 237.49 46.99 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "f7731f2c-67bb-461a-af58-f570a8579e63")
-		(property "Reference" "SW2"
-			(at 237.49 48.514 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "SW_Push"
-			(at 237.49 50.292 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "TSB008A2526A:TSB008A2526A"
-			(at 237.49 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 237.49 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Push button switch, generic, two pins"
-			(at 237.49 46.99 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "f5680ee2-16ed-4341-8c92-0fdc44d56606")
-		)
-		(pin "1"
-			(uuid "21bc2bd5-5c32-453a-8b80-52f6755befee")
-		)
-		(instances
-			(project "business_card"
-				(path "/16d1a3fe-4f2d-4eb3-9740-21c0af2e4feb"
-					(reference "SW2")
 					(unit 1)
 				)
 			)
