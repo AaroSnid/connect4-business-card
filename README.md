@@ -5,7 +5,7 @@ This business card doubles as a portable, handheld gaming device that allows a u
 > **Status:** Hardware V1.0 Release 
 > **Hardware Version:** V1.0
 
-![PCB V1.0 3D Model](./images/pcb_3D_model_V1.0.png)
+![PCB V1.0 3D Model](./Media/pcb_3D_model_V1.0.png)
 
 ---
 
