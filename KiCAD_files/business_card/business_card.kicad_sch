@@ -6,8 +6,8 @@
 	(paper "A4")
 	(title_block
 		(title "Connect_4_Business_Card")
-		(date "2026-03-16")
-		(rev "0")
+		(date "2026-05-15")
+		(rev "1")
 	)
 	(lib_symbols
 		(symbol "2026-05-05_18-10-22:ST25TN01K-AFH5"
@@ -13278,7 +13278,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_PinHeader_1.00mm:PinHeader_1x05_P1.00mm_Vertical"
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical"
 			(at 48.26 69.85 0)
 			(hide yes)
 			(show_name no)
