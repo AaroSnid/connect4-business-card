@@ -84,6 +84,41 @@ int main(void)
 
   /* USER CODE BEGIN Init */
 
+  /* ---------------- Power Supply Voltage Monitoring Configuration ---------------- */
+  if ((FLASH->OPTR & FLASH_OPTR_BOR_LEV) != OB_BOR_LEVEL_1)
+  {
+      FLASH_OBProgramInitTypeDef OptionsBytesStruct = {0};
+
+      HAL_FLASH_Unlock();
+      HAL_FLASH_OB_Unlock();
+
+      // Hardcoded payload for BOR Level 1
+      OptionsBytesStruct.OptionType = OPTIONBYTE_USER;
+      OptionsBytesStruct.USERType   = OB_USER_BOR_LEV;
+      OptionsBytesStruct.USERConfig = OB_BOR_LEVEL_1;
+
+      // 4. Program and reload the option bytes
+      if (HAL_FLASHEx_OBProgram(&OptionsBytesStruct) == HAL_OK)
+      {
+          // Reboots device with new 2.2V threshold
+          HAL_FLASH_OB_Launch(); 
+      }
+
+      // Option bytes programming has failed
+      // Fallback safety locks
+      HAL_FLASH_OB_Lock();
+      HAL_FLASH_Unlock();
+
+      // TODO: Implement error handling
+  }
+
+  /* ----------- Enable BOR/PVD Periodic Sampling ----------- */
+  // Enable Power interface clock
+  SET_BIT(RCC->APBENR1, RCC_APBENR1_PWREN);
+    
+  // Enable ultra-low-power sampling
+  SET_BIT(PWR->CR3, PWR_CR3_ENULP);
+
   /* USER CODE END Init */
 
   /* Configure the system clock */
