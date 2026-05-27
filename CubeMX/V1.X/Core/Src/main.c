@@ -22,6 +22,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
+#include <stdbool.h>
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -37,6 +39,14 @@
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
 
+#define EXTI_LINES_1_7_MASK    (EXTI_IMR1_IM1 | EXTI_IMR1_IM2 | EXTI_IMR1_IM3 | \
+                                EXTI_IMR1_IM4 | EXTI_IMR1_IM5 | EXTI_IMR1_IM6 | \
+                                EXTI_IMR1_IM7)
+
+#define EXTI_LINES_1_7_PENDING (EXTI_RPR1_RPIF1 | EXTI_RPR1_RPIF2 | EXTI_RPR1_RPIF3 | \
+                                EXTI_RPR1_RPIF4 | EXTI_RPR1_RPIF5 | EXTI_RPR1_RPIF6 | \
+                                EXTI_RPR1_RPIF7)
+
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -49,6 +59,9 @@ PCD_HandleTypeDef hpcd_USB_DRD_FS;
 
 /* USER CODE BEGIN PV */
 
+volatile uint8_t player_button_input = 0; // Stores pressed button ID (1-7). 0 means no input.
+volatile bool input_received = false;      // Flag to signal the game loop
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -58,6 +71,37 @@ static void MX_DMA_Init(void);
 static void MX_USB_PCD_Init(void);
 static void MX_TIM2_Init(void);
 /* USER CODE BEGIN PFP */
+
+// Clear leftover pending bits and enable interrupts lines [1:7] 
+void TurnControl_EXTI_StartPlayerTurn(void) {
+    EXTI->RPR1 = EXTI_LINES_1_7_PENDING;
+    EXTI->IMR1 |= EXTI_LINES_1_7_MASK;
+}
+
+static void Unified_Button_Handler(uint32_t pending_register) {
+    // Mask lines [1:7] to ignore subsequent presses and contact bounce
+    EXTI->IMR1 &= ~EXTI_LINES_1_7_MASK;
+
+    uint32_t valid_buttons = pending_register & EXTI_LINES_1_7_MASK;
+
+    if (valid_buttons != 0) {
+        // Find interrupt number by counting trailing zeros to get lowest bit index
+        player_button_input = (uint8_t)__builtin_ctz(valid_buttons);
+        input_received = true;
+    }
+}
+
+void EXTI0_1_IRQHandler(void) {
+    Unified_Button_Handler(EXTI->RPR1);
+}
+
+void EXTI2_3_IRQHandler(void) {
+    Unified_Button_Handler(EXTI->RPR1);
+}
+
+void EXTI4_15_IRQHandler(void) {
+    Unified_Button_Handler(EXTI->RPR1);
+}
 
 /* USER CODE END PFP */
 
@@ -141,6 +185,17 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+
+    /* Example implementation for getting the user input
+    *    player_button_input = 0;
+    *    input_received = false;
+    *    TurnControl_EXTI_StartPlayerTurn();
+    *    
+    *    while (!input_received) {
+    *        __WFI(); // Wait for interrupt instruction
+    *    }
+    */
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
