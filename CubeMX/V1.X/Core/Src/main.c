@@ -34,6 +34,57 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 
+#define MODER_REG_INPUT   0x00000000  // [1:0] = 00 == Input
+#define MODER_REG_OUTPUT  0x55555555  // [1:0] = 01 == Output
+
+// These represent GPIO pin numbers in port B, which could change between hardware versions
+#define ROW_6_POS         0
+#define ROW_5_POS         1
+#define ROW_4_POS         2
+#define ROW_3_POS         3
+#define ROW_2_POS         4
+#define ROW_1_POS         5
+
+#define COL_1_POS         6
+#define COL_2_POS         7
+#define COL_3_POS         8
+#define COL_4_POS         9
+#define COL_5_POS         10
+#define COL_6_POS         11
+#define COL_7_POS         12
+
+// ODR bits (16 bit reg)
+// Bit operations are taken care of by compiler, so at runtime it will be a constant
+#define ROW_6_ODR         ((uint16_t)(1U << ROW_6_POS))
+#define ROW_5_ODR         ((uint16_t)(1U << ROW_5_POS))
+#define ROW_4_ODR         ((uint16_t)(1U << ROW_4_POS))
+#define ROW_3_ODR         ((uint16_t)(1U << ROW_3_POS))
+#define ROW_2_ODR         ((uint16_t)(1U << ROW_2_POS))
+#define ROW_1_ODR         ((uint16_t)(1U << ROW_1_POS))
+
+#define COL_1_ODR         ((uint16_t)(1U << COL_1_POS))
+#define COL_2_ODR         ((uint16_t)(1U << COL_2_POS))
+#define COL_3_ODR         ((uint16_t)(1U << COL_3_POS))
+#define COL_4_ODR         ((uint16_t)(1U << COL_4_POS))
+#define COL_5_ODR         ((uint16_t)(1U << COL_5_POS))
+#define COL_6_ODR         ((uint16_t)(1U << COL_6_POS))
+#define COL_7_ODR         ((uint16_t)(1U << COL_7_POS))
+
+// MODER bits (32 bit reg)
+#define ROW_6_MODER       ((uint32_t)(0x3UL << (ROW_6_POS * 2)))
+#define ROW_5_MODER       ((uint32_t)(0x3UL << (ROW_5_POS * 2)))
+#define ROW_4_MODER       ((uint32_t)(0x3UL << (ROW_4_POS * 2)))
+#define ROW_3_MODER       ((uint32_t)(0x3UL << (ROW_3_POS * 2)))
+#define ROW_2_MODER       ((uint32_t)(0x3UL << (ROW_2_POS * 2)))
+#define ROW_1_MODER       ((uint32_t)(0x3UL << (ROW_1_POS * 2)))
+
+#define COL_1_MODER       ((uint32_t)(0x3UL << (COL_1_POS * 2)))
+#define COL_2_MODER       ((uint32_t)(0x3UL << (COL_2_POS * 2)))
+#define COL_3_MODER       ((uint32_t)(0x3UL << (COL_3_POS * 2)))
+#define COL_4_MODER       ((uint32_t)(0x3UL << (COL_4_POS * 2)))
+#define COL_5_MODER       ((uint32_t)(0x3UL << (COL_5_POS * 2)))
+#define COL_6_MODER       ((uint32_t)(0x3UL << (COL_6_POS * 2)))
+#define COL_7_MODER       ((uint32_t)(0x3UL << (COL_7_POS * 2)))
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -61,6 +112,58 @@ PCD_HandleTypeDef hpcd_USB_DRD_FS;
 
 volatile uint8_t player_button_input = 0; // Stores pressed button ID (1-7). 0 means no input.
 volatile bool input_received = false;      // Flag to signal the game loop
+
+volatile uint32_t gpiob_pin_modes[42] = {
+  (ROW_1_MODER | COL_1_MODER) & MODER_REG_OUTPUT,
+  (ROW_1_MODER | COL_2_MODER) & MODER_REG_OUTPUT,
+  (ROW_1_MODER | COL_3_MODER) & MODER_REG_OUTPUT,
+  (ROW_1_MODER | COL_4_MODER) & MODER_REG_OUTPUT,
+  (ROW_1_MODER | COL_5_MODER) & MODER_REG_OUTPUT,
+  (ROW_1_MODER | COL_6_MODER) & MODER_REG_OUTPUT,
+  (ROW_1_MODER | COL_7_MODER) & MODER_REG_OUTPUT,
+
+  (ROW_2_MODER | COL_1_MODER) & MODER_REG_OUTPUT,
+  (ROW_2_MODER | COL_2_MODER) & MODER_REG_OUTPUT,
+  (ROW_2_MODER | COL_3_MODER) & MODER_REG_OUTPUT,
+  (ROW_2_MODER | COL_4_MODER) & MODER_REG_OUTPUT,
+  (ROW_2_MODER | COL_5_MODER) & MODER_REG_OUTPUT,
+  (ROW_2_MODER | COL_6_MODER) & MODER_REG_OUTPUT,
+  (ROW_2_MODER | COL_7_MODER) & MODER_REG_OUTPUT,
+
+  (ROW_3_MODER | COL_1_MODER) & MODER_REG_OUTPUT,
+  (ROW_3_MODER | COL_2_MODER) & MODER_REG_OUTPUT,
+  (ROW_3_MODER | COL_3_MODER) & MODER_REG_OUTPUT,
+  (ROW_3_MODER | COL_4_MODER) & MODER_REG_OUTPUT,
+  (ROW_3_MODER | COL_5_MODER) & MODER_REG_OUTPUT,
+  (ROW_3_MODER | COL_6_MODER) & MODER_REG_OUTPUT,
+  (ROW_3_MODER | COL_7_MODER) & MODER_REG_OUTPUT,
+
+  (ROW_4_MODER | COL_1_MODER) & MODER_REG_OUTPUT,
+  (ROW_4_MODER | COL_2_MODER) & MODER_REG_OUTPUT,
+  (ROW_4_MODER | COL_3_MODER) & MODER_REG_OUTPUT,
+  (ROW_4_MODER | COL_4_MODER) & MODER_REG_OUTPUT,
+  (ROW_4_MODER | COL_5_MODER) & MODER_REG_OUTPUT,
+  (ROW_4_MODER | COL_6_MODER) & MODER_REG_OUTPUT,
+  (ROW_4_MODER | COL_7_MODER) & MODER_REG_OUTPUT,
+
+  (ROW_5_MODER | COL_1_MODER) & MODER_REG_OUTPUT,
+  (ROW_5_MODER | COL_2_MODER) & MODER_REG_OUTPUT,
+  (ROW_5_MODER | COL_3_MODER) & MODER_REG_OUTPUT,
+  (ROW_5_MODER | COL_4_MODER) & MODER_REG_OUTPUT,
+  (ROW_5_MODER | COL_5_MODER) & MODER_REG_OUTPUT,
+  (ROW_5_MODER | COL_6_MODER) & MODER_REG_OUTPUT,
+  (ROW_5_MODER | COL_7_MODER) & MODER_REG_OUTPUT,
+
+  (ROW_6_MODER | COL_1_MODER) & MODER_REG_OUTPUT,
+  (ROW_6_MODER | COL_2_MODER) & MODER_REG_OUTPUT,
+  (ROW_6_MODER | COL_3_MODER) & MODER_REG_OUTPUT,
+  (ROW_6_MODER | COL_4_MODER) & MODER_REG_OUTPUT,
+  (ROW_6_MODER | COL_5_MODER) & MODER_REG_OUTPUT,
+  (ROW_6_MODER | COL_6_MODER) & MODER_REG_OUTPUT,
+  (ROW_6_MODER | COL_7_MODER) & MODER_REG_OUTPUT
+};
+
+volatile uint16_t gpiob_output_data[42];  // Cast to uint32_t with 0-extension before writing into reg
 
 /* USER CODE END PV */
 
@@ -101,6 +204,10 @@ void EXTI2_3_IRQHandler(void) {
 
 void EXTI4_15_IRQHandler(void) {
     Unified_Button_Handler(EXTI->RPR1);
+}
+
+inline void set_odr_color(uint8_t bit_position, uint16_t forward_enable, uint16_t backwards_enable){
+    gpiob_output_data[bit_position] = (forward_enable | backwards_enable);
 }
 
 /* USER CODE END PFP */
