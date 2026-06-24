@@ -163,7 +163,7 @@ volatile uint32_t gpiob_pin_modes[42] = {
   (ROW_6_MODER | COL_7_MODER) & MODER_REG_OUTPUT
 };
 
-volatile uint16_t gpiob_output_data[42];  // Cast to uint32_t with 0-extension before writing into reg
+volatile uint16_t gpiob_output_data[42] = {0};  // Cast to uint32_t with 0-extension before writing into reg
 
 /* USER CODE END PV */
 
@@ -285,6 +285,15 @@ int main(void)
   MX_USB_PCD_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
+
+  // Point DMA to screen buffers and the respective PortB registers
+  HAL_DMA_Start(&hdma_tim2_ch2, (uint32_t)gpiob_pin_modes, (uint32_t)&(GPIOB->MODER), 42);
+  HAL_DMA_Start(&hdma_tim2_ch1, (uint32_t)gpiob_output_data, (uint32_t)&(GPIOB->BSRR), 42);
+
+  // Enable the Timer to trigger DMA updates
+  __HAL_TIM_ENABLE_DMA(&htim2, TIM_DMA_UPDATE);
+    
+  HAL_TIM_Base_Start(&htim2);
 
   /* USER CODE END 2 */
 
