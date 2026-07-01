@@ -23,6 +23,7 @@
 /* USER CODE BEGIN Includes */
 
 #include <stdbool.h>
+#include "connect-4-board.h"
 
 /* USER CODE END Includes */
 
@@ -166,6 +167,10 @@ volatile uint32_t gpiob_pin_modes[42] = {
 
 volatile uint16_t gpiob_output_data[42] = {0};  // Cast to uint32_t with 0-extension before writing into reg
 
+uint64_t game_board = 0;
+uint64_t p1_moves = 0;
+uint8_t move_num = 0;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -213,6 +218,13 @@ inline void set_odr_color(uint8_t bit_position, uint16_t forward_enable, uint16_
 
 uint8_t bitboard_to_buffer_index(uint8_t bitboard_index){
   return bitboard_index - (bitboard_index / 7);
+}
+
+
+void PlayerWin_GameEndSequence(void){
+}
+
+void AIWin_GameEndSequence(void){
 }
 
 /* USER CODE END PFP */
@@ -306,16 +318,79 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+    while (move_num < 42)
+    {
+      if (move_num % 2 == 0)
+      {
+        uint8_t column;
+        int location;
 
-    /* Example implementation for getting the user input
-    *    player_button_input = 0;
-    *    input_received = false;
-    *    TurnControl_EXTI_StartPlayerTurn();
-    *    
-    *    while (!input_received) {
-    *        __WFI(); // Wait for interrupt instruction
-    *    }
-    */
+        do
+        {
+          player_button_input = 0;
+          input_received = false;
+          TurnControl_EXTI_StartPlayerTurn();
+
+          while (!input_received)
+          {
+            __WFI(); // TODO: Give AI additional computation time during wait
+          }
+
+          if (player_button_input < 1 || player_button_input > 7)
+          {
+            continue;
+          }
+          column = player_button_input - 1;
+        } while (!is_playable(game_board, column));
+
+        location = play_move(&game_board, column);
+        if (location < 0)
+        {
+          break;
+        }
+
+        p1_moves |= (1ULL << location);
+        move_num++;
+
+        if (is_won(p1_moves))
+        {
+          break;
+        }
+      }
+      else
+      {
+        int bot_column = choose_best_ai_move(game_board, p1_moves);
+        if (bot_column < 0)
+        {
+          break;
+        }
+
+        if (play_move(&game_board, (unsigned char)bot_column) < 0)
+        {
+          break;
+        }
+
+        move_num++;
+
+        if (is_won(game_board ^ p1_moves))
+        {
+          break;
+        }
+      }
+    }
+
+    if (is_won(p1_moves))
+    {
+      PlayerWin_GameEndSequence();
+    }
+    else if (is_won(game_board ^ p1_moves))
+    {
+      AIWin_GameEndSequence();
+    }
+
+    game_board = 0;
+    p1_moves = 0;
+    move_num = 0;
 
     /* USER CODE END WHILE */
 
