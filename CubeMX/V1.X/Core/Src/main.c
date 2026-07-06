@@ -57,19 +57,8 @@
 // ODR bits (16 bit reg)
 // Bit operations are taken care of by compiler, so at runtime it will be a constant
 #define ROW_6_ODR         ((uint16_t)(1U << ROW_6_POS))
-#define ROW_5_ODR         ((uint16_t)(1U << ROW_5_POS))
-#define ROW_4_ODR         ((uint16_t)(1U << ROW_4_POS))
-#define ROW_3_ODR         ((uint16_t)(1U << ROW_3_POS))
-#define ROW_2_ODR         ((uint16_t)(1U << ROW_2_POS))
-#define ROW_1_ODR         ((uint16_t)(1U << ROW_1_POS))
 
 #define COL_1_ODR         ((uint16_t)(1U << COL_1_POS))
-#define COL_2_ODR         ((uint16_t)(1U << COL_2_POS))
-#define COL_3_ODR         ((uint16_t)(1U << COL_3_POS))
-#define COL_4_ODR         ((uint16_t)(1U << COL_4_POS))
-#define COL_5_ODR         ((uint16_t)(1U << COL_5_POS))
-#define COL_6_ODR         ((uint16_t)(1U << COL_6_POS))
-#define COL_7_ODR         ((uint16_t)(1U << COL_7_POS))
 
 // MODER bits (32 bit reg)
 #define ROW_6_MODER       ((uint32_t)(0x3UL << (ROW_6_POS * 2)))
@@ -106,8 +95,6 @@
 TIM_HandleTypeDef htim2;
 DMA_HandleTypeDef hdma_tim2_ch1;
 DMA_HandleTypeDef hdma_tim2_ch2;
-
-PCD_HandleTypeDef hpcd_USB_DRD_FS;
 
 /* USER CODE BEGIN PV */
 
@@ -177,7 +164,6 @@ uint8_t move_num = 0;
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_DMA_Init(void);
-static void MX_USB_PCD_Init(void);
 static void MX_TIM2_Init(void);
 /* USER CODE BEGIN PFP */
 
@@ -212,14 +198,29 @@ void EXTI4_15_IRQHandler(void) {
     Unified_Button_Handler(EXTI->RPR1);
 }
 
-inline void set_odr_color(uint8_t bit_position, uint16_t forward_enable, uint16_t backwards_enable){
-    gpiob_output_data[bit_position] = (forward_enable | backwards_enable);
-}
-
-uint8_t bitboard_to_buffer_index(uint8_t bitboard_index){
+uint8_t bitboard_to_buffer_index(uint8_t bitboard_index) {
   return bitboard_index - (bitboard_index / 7);
 }
 
+// Leverage existing macros and shift relative to their positions
+// Change operations to /6 and %6 if using buffer index
+uint16_t get_row_odr(uint8_t bitboard_index) {
+    // Bitboard index % 7 gives row 0 (bottom) to 5 (top)
+    return (uint16_t)(ROW_6_ODR << (bitboard_index % 7));
+}
+
+uint16_t get_col_odr(uint8_t bitboard_index) {
+    // Bitboard index / 7 gives col 0 to 6
+    return (uint16_t)(COL_1_ODR << (bitboard_index / 7));
+}
+
+void set_color_row(uint8_t bitboard_position) {
+    gpiob_output_data[bitboard_to_buffer_index(bitboard_position)] = get_row_odr(bitboard_position);
+}
+
+void set_color_col(uint8_t bitboard_position) {
+    gpiob_output_data[bitboard_to_buffer_index(bitboard_position)] = get_col_odr(bitboard_position);
+}
 
 void PlayerWin_GameEndSequence(void){
 }
@@ -299,13 +300,36 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_DMA_Init();
-  MX_USB_PCD_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
 
+  // DMA channel driving GPIOB ODR
+  hdma_tim2_ch1.Instance = DMA1_Channel1;
+  hdma_tim2_ch1.Init.Request = DMA_REQUEST_TIM2_UP;
+  hdma_tim2_ch1.Init.Direction = DMA_MEMORY_TO_PERIPH;
+  hdma_tim2_ch1.Init.PeriphInc = DMA_PINC_DISABLE;
+  hdma_tim2_ch1.Init.MemInc = DMA_MINC_ENABLE;
+  hdma_tim2_ch1.Init.PeriphDataAlignment = DMA_PDATAALIGN_WORD;
+  hdma_tim2_ch1.Init.MemDataAlignment = DMA_MDATAALIGN_HALFWORD;
+  hdma_tim2_ch1.Init.Mode = DMA_CIRCULAR;
+  hdma_tim2_ch1.Init.Priority = DMA_PRIORITY_HIGH;
+  if (HAL_DMA_Init(&hdma_tim2_ch1) != HAL_OK) { Error_Handler(); }
+
+  // DMA channel driving GPIOB MODER
+  hdma_tim2_ch2.Instance = DMA1_Channel2;
+  hdma_tim2_ch2.Init.Request = DMA_REQUEST_TIM2_UP;
+  hdma_tim2_ch2.Init.Direction = DMA_MEMORY_TO_PERIPH;
+  hdma_tim2_ch2.Init.PeriphInc = DMA_PINC_DISABLE;
+  hdma_tim2_ch2.Init.MemInc = DMA_MINC_ENABLE;
+  hdma_tim2_ch2.Init.PeriphDataAlignment = DMA_PDATAALIGN_WORD;
+  hdma_tim2_ch2.Init.MemDataAlignment = DMA_MDATAALIGN_WORD;
+  hdma_tim2_ch2.Init.Mode = DMA_CIRCULAR;
+  hdma_tim2_ch2.Init.Priority = DMA_PRIORITY_HIGH;
+  if (HAL_DMA_Init(&hdma_tim2_ch2) != HAL_OK) { Error_Handler(); }
+
   // Point DMA to screen buffers and the respective PortB registers
   HAL_DMA_Start(&hdma_tim2_ch2, (uint32_t)gpiob_pin_modes, (uint32_t)&(GPIOB->MODER), 42);
-  HAL_DMA_Start(&hdma_tim2_ch1, (uint32_t)gpiob_output_data, (uint32_t)&(GPIOB->BSRR), 42);
+  HAL_DMA_Start(&hdma_tim2_ch1, (uint32_t)gpiob_output_data, (uint32_t)&(GPIOB->ODR), 42);
 
   // Enable the Timer to trigger DMA updates
   __HAL_TIM_ENABLE_DMA(&htim2, TIM_DMA_UPDATE);
@@ -325,8 +349,7 @@ int main(void)
         uint8_t column;
         int location;
 
-        do
-        {
+        for (;;) {
           player_button_input = 0;
           input_received = false;
           TurnControl_EXTI_StartPlayerTurn();
@@ -341,13 +364,19 @@ int main(void)
             continue;
           }
           column = player_button_input - 1;
-        } while (!is_playable(game_board, column));
+
+          if (is_playable(game_board, column)){
+            break;
+          }
+        }
 
         location = play_move(&game_board, column);
         if (location < 0)
         {
           break;
         }
+
+        set_color_row(location);
 
         p1_moves |= (1ULL << location);
         move_num++;
@@ -365,10 +394,13 @@ int main(void)
           break;
         }
 
-        if (play_move(&game_board, (unsigned char)bot_column) < 0)
+        uint8_t location = play_move(&game_board, (unsigned char)bot_column);
+        if (location < 0)
         {
           break;
         }
+
+        set_color_col(location);
 
         move_num++;
 
@@ -415,12 +447,9 @@ void SystemClock_Config(void)
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI|RCC_OSCILLATORTYPE_MSI;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
-  RCC_OscInitStruct.MSIState = RCC_MSI_ON;
-  RCC_OscInitStruct.MSICalibrationValue = RCC_MSICALIBRATION_DEFAULT;
-  RCC_OscInitStruct.MSIClockRange = RCC_MSIRANGE_11;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
@@ -505,39 +534,6 @@ static void MX_TIM2_Init(void)
 }
 
 /**
-  * @brief USB Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_USB_PCD_Init(void)
-{
-
-  /* USER CODE BEGIN USB_Init 0 */
-
-  /* USER CODE END USB_Init 0 */
-
-  /* USER CODE BEGIN USB_Init 1 */
-
-  /* USER CODE END USB_Init 1 */
-  hpcd_USB_DRD_FS.Instance = USB_DRD_FS;
-  hpcd_USB_DRD_FS.Init.dev_endpoints = 8;
-  hpcd_USB_DRD_FS.Init.speed = USBD_FS_SPEED;
-  hpcd_USB_DRD_FS.Init.phy_itface = PCD_PHY_EMBEDDED;
-  hpcd_USB_DRD_FS.Init.Sof_enable = DISABLE;
-  hpcd_USB_DRD_FS.Init.low_power_enable = DISABLE;
-  hpcd_USB_DRD_FS.Init.lpm_enable = DISABLE;
-  hpcd_USB_DRD_FS.Init.battery_charging_enable = DISABLE;
-  if (HAL_PCD_Init(&hpcd_USB_DRD_FS) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN USB_Init 2 */
-
-  /* USER CODE END USB_Init 2 */
-
-}
-
-/**
   * Enable DMA controller clock
   */
 static void MX_DMA_Init(void)
@@ -565,6 +561,9 @@ static void MX_GPIO_Init(void)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
   /* USER CODE BEGIN MX_GPIO_Init_1 */
+
+  // Must add manually since CubeMX sees no GPIOB pins used
+  __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /* USER CODE END MX_GPIO_Init_1 */
 

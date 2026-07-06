@@ -228,9 +228,9 @@ int minimax(uint64_t game_board, uint64_t player_moves, uint8_t depth, int alpha
     if (is_full(game_board)) return 0;
     if (depth == MINIMAX_MAX_DEPTH) return board_heuristic(game_board, player_moves);
 
+#if TRANSPOSITION_TABLE_SIZE != 0
     const uint8_t remaining_depth = MINIMAX_MAX_DEPTH - depth;
 
-#if TRANSPOSITION_TABLE_SIZE != 0
     const uint64_t position_key = compute_position_key(game_board, player_moves);
     TranspositionEntry &entry = transposition_table[transposition_index(position_key)];
 
