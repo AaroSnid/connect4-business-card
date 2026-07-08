@@ -309,7 +309,7 @@ int main(void)
   hdma_tim2_ch1.Init.Direction = DMA_MEMORY_TO_PERIPH;
   hdma_tim2_ch1.Init.PeriphInc = DMA_PINC_DISABLE;
   hdma_tim2_ch1.Init.MemInc = DMA_MINC_ENABLE;
-  hdma_tim2_ch1.Init.PeriphDataAlignment = DMA_PDATAALIGN_WORD;
+  hdma_tim2_ch1.Init.PeriphDataAlignment = DMA_PDATAALIGN_HALFWORD;
   hdma_tim2_ch1.Init.MemDataAlignment = DMA_MDATAALIGN_HALFWORD;
   hdma_tim2_ch1.Init.Mode = DMA_CIRCULAR;
   hdma_tim2_ch1.Init.Priority = DMA_PRIORITY_HIGH;
@@ -394,7 +394,7 @@ int main(void)
           break;
         }
 
-        uint8_t location = play_move(&game_board, (unsigned char)bot_column);
+        int location = play_move(&game_board, (unsigned char)bot_column);
         if (location < 0)
         {
           break;
