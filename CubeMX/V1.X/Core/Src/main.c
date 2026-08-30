@@ -167,35 +167,27 @@ static void MX_DMA_Init(void);
 static void MX_TIM2_Init(void);
 /* USER CODE BEGIN PFP */
 
-// Clear leftover pending bits and enable interrupts lines [1:7] 
-void TurnControl_EXTI_StartPlayerTurn(void) {
-    EXTI->RPR1 = EXTI_LINES_1_7_PENDING;
-    EXTI->IMR1 |= EXTI_LINES_1_7_MASK;
-}
-
-static void Unified_Button_Handler(uint32_t pending_register) {
-    // Mask lines [1:7] to ignore subsequent presses and contact bounce
-    EXTI->IMR1 &= ~EXTI_LINES_1_7_MASK;
-
-    uint32_t valid_buttons = pending_register & EXTI_LINES_1_7_MASK;
-
-    if (valid_buttons != 0) {
-        // Find interrupt number by counting trailing zeros to get lowest bit index
-        player_button_input = (uint8_t)__builtin_ctz(valid_buttons);
+static void unified_button_handler(uint32_t pending_register) {
+    
+    EXTI->RPR1 = pending_register;
+  
+    if ((!input_received) && (pending_register != 0U)) {
+        // Find interrupt source by counting trailing zeros to get lowest bit index
+        player_button_input = (uint8_t)__builtin_ctz(pending_register);
         input_received = true;
     }
 }
 
 void EXTI0_1_IRQHandler(void) {
-    Unified_Button_Handler(EXTI->RPR1);
+    unified_button_handler(EXTI->RPR1);
 }
 
 void EXTI2_3_IRQHandler(void) {
-    Unified_Button_Handler(EXTI->RPR1);
+    unified_button_handler(EXTI->RPR1);
 }
 
 void EXTI4_15_IRQHandler(void) {
-    Unified_Button_Handler(EXTI->RPR1);
+    unified_button_handler(EXTI->RPR1);
 }
 
 uint8_t bitboard_to_buffer_index(uint8_t bitboard_index) {
@@ -352,7 +344,6 @@ int main(void)
         for (;;) {
           player_button_input = 0;
           input_received = false;
-          TurnControl_EXTI_StartPlayerTurn();
 
           while (!input_received)
           {
