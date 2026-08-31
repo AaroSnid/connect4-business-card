@@ -35,24 +35,24 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 
-#define MODER_REG_INPUT   0x00000000  // [1:0] = 00 == Input
-#define MODER_REG_OUTPUT  0x55555555  // [1:0] = 01 == Output
+#define MODER_REG_INPUT   0x00000000U  // [1:0] = 00 == Input
+#define MODER_REG_OUTPUT  0x55555555U  // [1:0] = 01 == Output
 
 // These represent GPIO pin numbers in port B, which could change between hardware versions
-#define ROW_6_POS         0
-#define ROW_5_POS         1
-#define ROW_4_POS         2
-#define ROW_3_POS         3
-#define ROW_2_POS         4
-#define ROW_1_POS         5
+#define ROW_6_POS         0U
+#define ROW_5_POS         1U
+#define ROW_4_POS         2U
+#define ROW_3_POS         3U
+#define ROW_2_POS         4U
+#define ROW_1_POS         5U
 
-#define COL_1_POS         6
-#define COL_2_POS         7
-#define COL_3_POS         8
-#define COL_4_POS         9
-#define COL_5_POS         10
-#define COL_6_POS         11
-#define COL_7_POS         12
+#define COL_1_POS         6U
+#define COL_2_POS         7U
+#define COL_3_POS         8U
+#define COL_4_POS         9U
+#define COL_5_POS         10U
+#define COL_6_POS         11U
+#define COL_7_POS         12U
 
 // ODR bits (16 bit reg)
 // Bit operations are taken care of by compiler, so at runtime it will be a constant
@@ -98,7 +98,7 @@ DMA_HandleTypeDef hdma_tim2_ch2;
 
 /* USER CODE BEGIN PV */
 
-volatile uint8_t player_button_input = 0; // Stores pressed button ID (1-7). 0 means no input.
+volatile uint8_t player_button_input = 0U; // Stores pressed button ID (1-7). 0 means no input.
 volatile bool input_received = false;      // Flag to signal the game loop
 
 volatile uint32_t gpiob_pin_modes[42] = {
@@ -152,11 +152,11 @@ volatile uint32_t gpiob_pin_modes[42] = {
     (ROW_1_MODER | COL_7_MODER) & MODER_REG_OUTPUT
 };
 
-volatile uint16_t gpiob_output_data[42] = {0};  // Cast to uint32_t with 0-extension before writing into reg
+volatile uint16_t gpiob_output_data[42] = {0U};  // Cast to uint32_t with 0-extension before writing into reg
 
-uint64_t game_board = 0;
-uint64_t p1_moves = 0;
-uint8_t move_num = 0;
+uint64_t game_board = 0U;
+uint64_t p1_moves = 0U;
+uint8_t move_num = 0U;
 
 /* USER CODE END PV */
 
@@ -178,6 +178,7 @@ static void unified_button_handler(uint32_t pending_register) {
     }
 }
 
+// Expected function signatures for interrupt callbacks
 void EXTI0_1_IRQHandler(void) {
     unified_button_handler(EXTI->RPR1);
 }
@@ -191,7 +192,7 @@ void EXTI4_15_IRQHandler(void) {
 }
 
 uint8_t bitboard_to_buffer_index(uint8_t bitboard_index) {
-  return bitboard_index - (bitboard_index / 7);
+    return bitboard_index - (bitboard_index / 7);
 }
 
 // Leverage existing macros and shift relative to their positions
@@ -214,10 +215,18 @@ void set_color_col(uint8_t bitboard_position) {
     gpiob_output_data[bitboard_to_buffer_index(bitboard_position)] = get_col_odr(bitboard_position);
 }
 
-void PlayerWin_GameEndSequence(void){
+void end_player_win(void) {
+
 }
 
-void AIWin_GameEndSequence(void){
+void end_ai_win(void) {
+
+}
+
+void clear_board(void) {
+    for (uint8_t i = 0U; i < 42U; ++i) {
+        gpiob_output_data[i] = 0U;
+    }
 }
 
 /* USER CODE END PFP */
@@ -231,8 +240,7 @@ void AIWin_GameEndSequence(void){
   * @brief  The application entry point.
   * @retval int
   */
-int main(void)
-{
+int main(void) {
 
   /* USER CODE BEGIN 1 */
 
@@ -245,9 +253,8 @@ int main(void)
 
   /* USER CODE BEGIN Init */
 
-  /* ---------------- Power Supply Voltage Monitoring Configuration ---------------- */
-  if ((FLASH->OPTR & FLASH_OPTR_BOR_LEV) != OB_BOR_LEVEL_1)
-  {
+  // Power Supply Voltage Monitoring Configuration
+  if ((FLASH->OPTR & FLASH_OPTR_BOR_LEV) != OB_BOR_LEVEL_1) {
       FLASH_OBProgramInitTypeDef OptionsBytesStruct = {0};
 
       HAL_FLASH_Unlock();
@@ -258,9 +265,8 @@ int main(void)
       OptionsBytesStruct.USERType   = OB_USER_BOR_LEV;
       OptionsBytesStruct.USERConfig = OB_BOR_LEVEL_1;
 
-      // 4. Program and reload the option bytes
-      if (HAL_FLASHEx_OBProgram(&OptionsBytesStruct) == HAL_OK)
-      {
+      // Program and reload option bytes
+      if (HAL_FLASHEx_OBProgram(&OptionsBytesStruct) == HAL_OK) {
           // Reboots device with new 2.2V threshold
           HAL_FLASH_OB_Launch(); 
       }
@@ -273,7 +279,7 @@ int main(void)
       // TODO: Implement error handling
   }
 
-  /* ----------- Enable BOR/PVD Periodic Sampling ----------- */
+  // Enable BOR/PVD Periodic Sampling
   // Enable Power interface clock
   SET_BIT(RCC->APBENR1, RCC_APBENR1_PWREN);
     
@@ -305,7 +311,9 @@ int main(void)
   hdma_tim2_ch1.Init.MemDataAlignment = DMA_MDATAALIGN_HALFWORD;
   hdma_tim2_ch1.Init.Mode = DMA_CIRCULAR;
   hdma_tim2_ch1.Init.Priority = DMA_PRIORITY_HIGH;
-  if (HAL_DMA_Init(&hdma_tim2_ch1) != HAL_OK) { Error_Handler(); }
+  if (HAL_DMA_Init(&hdma_tim2_ch1) != HAL_OK) { 
+      Error_Handler(); 
+  }
 
   // DMA channel driving GPIOB MODER
   hdma_tim2_ch2.Instance = DMA1_Channel2;
@@ -317,7 +325,9 @@ int main(void)
   hdma_tim2_ch2.Init.MemDataAlignment = DMA_MDATAALIGN_WORD;
   hdma_tim2_ch2.Init.Mode = DMA_CIRCULAR;
   hdma_tim2_ch2.Init.Priority = DMA_PRIORITY_HIGH;
-  if (HAL_DMA_Init(&hdma_tim2_ch2) != HAL_OK) { Error_Handler(); }
+  if (HAL_DMA_Init(&hdma_tim2_ch2) != HAL_OK) { 
+      Error_Handler();
+  }
 
   // Point DMA to screen buffers and the respective PortB registers
   HAL_DMA_Start(&hdma_tim2_ch2, (uint32_t)gpiob_pin_modes, (uint32_t)&(GPIOB->MODER), 42);
@@ -345,25 +355,22 @@ int main(void)
           player_button_input = 0;
           input_received = false;
 
-          while (!input_received)
-          {
+          while (!input_received) {
             __WFI(); // TODO: Give AI additional computation time during wait
           }
 
-          if (player_button_input < 1 || player_button_input > 7)
-          {
+          if (player_button_input < 1 || player_button_input > 7) {
             continue;
           }
           column = player_button_input - 1;
 
-          if (is_playable(game_board, column)){
+          if (is_playable(game_board, column)) {
             break;
           }
         }
 
         location = play_move(&game_board, column);
-        if (location < 0)
-        {
+        if (location < 0) {
           break;
         }
 
@@ -372,22 +379,19 @@ int main(void)
         p1_moves |= (1ULL << location);
         move_num++;
 
-        if (is_won(p1_moves))
-        {
+        if (is_won(p1_moves)) {
           break;
         }
       }
       else
       {
         int bot_column = choose_best_ai_move(game_board, p1_moves);
-        if (bot_column < 0)
-        {
+        if (bot_column < 0) {
           break;
         }
 
         int location = play_move(&game_board, (unsigned char)bot_column);
-        if (location < 0)
-        {
+        if (location < 0) {
           break;
         }
 
@@ -395,25 +399,24 @@ int main(void)
 
         move_num++;
 
-        if (is_won(game_board ^ p1_moves))
-        {
+        if (is_won(game_board ^ p1_moves)) {
           break;
         }
       }
     }
 
-    if (is_won(p1_moves))
-    {
-      PlayerWin_GameEndSequence();
+    if (is_won(p1_moves)) {
+      end_player_win();
     }
-    else if (is_won(game_board ^ p1_moves))
-    {
-      AIWin_GameEndSequence();
+    else if (is_won(game_board ^ p1_moves)) {
+      end_ai_win();
     }
 
     game_board = 0;
     p1_moves = 0;
     move_num = 0;
+
+    clear_board();
 
     /* USER CODE END WHILE */
 

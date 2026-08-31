@@ -15,8 +15,9 @@
       ],
       "device": "STM32U073CCU6",
       "interface": "swd",
+      "serverInterface": "SWD",
+      "serverInterfaceFrequency": "240",
       "stopAtEntry": false,
-      "serverArgs": ["-cf", "480"],
       "svdFile": "${workspaceFolder}/.vscode/STM32U073.svd"
     }
   ]
