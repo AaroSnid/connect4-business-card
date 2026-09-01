@@ -240,7 +240,8 @@ void clear_board(void) {
   * @brief  The application entry point.
   * @retval int
   */
-int main(void) {
+int main(void)
+{
 
   /* USER CODE BEGIN 1 */
 
@@ -257,26 +258,33 @@ int main(void) {
   if ((FLASH->OPTR & FLASH_OPTR_BOR_LEV) != OB_BOR_LEVEL_1) {
       FLASH_OBProgramInitTypeDef OptionsBytesStruct = {0};
 
+      // Clear a stale error
+      __HAL_FLASH_CLEAR_FLAG(FLASH_FLAG_OPERR);
+
       HAL_FLASH_Unlock();
       HAL_FLASH_OB_Unlock();
 
       // Hardcoded payload for BOR Level 1
       OptionsBytesStruct.OptionType = OPTIONBYTE_USER;
-      OptionsBytesStruct.USERType   = OB_USER_BOR_LEV;
-      OptionsBytesStruct.USERConfig = OB_BOR_LEVEL_1;
+      OptionsBytesStruct.USERType   = OB_USER_BOR_EN | OB_USER_BOR_LEV;
+      OptionsBytesStruct.USERConfig = OB_BOR_ENABLE | OB_BOR_LEVEL_1;
 
       // Program and reload option bytes
       if (HAL_FLASHEx_OBProgram(&OptionsBytesStruct) == HAL_OK) {
           // Reboots device with new 2.2V threshold
-          HAL_FLASH_OB_Launch(); 
+          HAL_FLASH_OB_Launch();
       }
-
       // Option bytes programming has failed
+
+      // Volatile to prevent optimizing out
+      // To be read on debug
+      volatile uint32_t flash_error = HAL_FLASH_GetError();
+
       // Fallback safety locks
       HAL_FLASH_OB_Lock();
-      HAL_FLASH_Unlock();
+      HAL_FLASH_Lock();
 
-      // TODO: Implement error handling
+      Error_Handler();
   }
 
   // Enable BOR/PVD Periodic Sampling
@@ -312,7 +320,7 @@ int main(void) {
   hdma_tim2_ch1.Init.Mode = DMA_CIRCULAR;
   hdma_tim2_ch1.Init.Priority = DMA_PRIORITY_HIGH;
   if (HAL_DMA_Init(&hdma_tim2_ch1) != HAL_OK) { 
-      Error_Handler(); 
+      Error_Handler();
   }
 
   // DMA channel driving GPIOB MODER
@@ -415,6 +423,8 @@ int main(void) {
     game_board = 0;
     p1_moves = 0;
     move_num = 0;
+
+    HAL_Delay(5000);
 
     clear_board();
 
