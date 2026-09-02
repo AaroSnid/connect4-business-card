@@ -18,6 +18,26 @@
       "serverInterface": "SWD",
       "serverInterfaceFrequency": "240",
       "stopAtEntry": false,
+      "svdFile": "${workspaceFolder}/.vscode/STM32U073.svd",
+      "verbose": true,
+      "openGdbConsole": true
+    },
+    {
+      "type": "stlinkgdbtarget",
+      "request": "attach",
+      "name": "STM32Cube: STM32 Attach (no flash)",
+      "cwd": "${workspaceFolder}",
+      "runEntry": "main",
+      "imagesAndSymbols": [
+        {
+          "imageFileName": "${command:st-stm32-ide-debug-launch.get-projects-binary-from-context1}"
+        }
+      ],
+      "device": "STM32U073CCU6",
+      "interface": "swd",
+      "serverInterface": "SWD",
+      "serverInterfaceFrequency": "240",
+      "serverReset": "Connect under reset",
       "svdFile": "${workspaceFolder}/.vscode/STM32U073.svd"
     }
   ]
