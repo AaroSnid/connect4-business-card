@@ -11,7 +11,7 @@
 
 #define BOARD_MASK 0xFC07E0FC07E03FULL
 
-#define MINIMAX_MAX_DEPTH 5
+unsigned int MINIMAX_MAX_DEPTH = 5;           // In current implementation this is user selectable
 #define TRANSPOSITION_TABLE_SIZE 0 // Prime number should be used to reduce the chance of collisions
 
 #define HEURISTIC_3_LINE_WEIGHT 15
@@ -221,7 +221,6 @@ int board_heuristic(uint64_t game_board, uint64_t player_moves){
 
 int minimax(uint64_t game_board, uint64_t player_moves, uint8_t depth, int alpha, int beta){
     const uint64_t opponent_moves = game_board ^ player_moves;
-    const int original_alpha = alpha;
 
     if (is_won(player_moves)) return 100000 - depth;
     if (is_won(opponent_moves)) return depth - 100000;
@@ -229,6 +228,7 @@ int minimax(uint64_t game_board, uint64_t player_moves, uint8_t depth, int alpha
     if (depth == MINIMAX_MAX_DEPTH) return board_heuristic(game_board, player_moves);
 
 #if TRANSPOSITION_TABLE_SIZE != 0
+    const int original_alpha = alpha;
     const uint8_t remaining_depth = MINIMAX_MAX_DEPTH - depth;
 
     const uint64_t position_key = compute_position_key(game_board, player_moves);
@@ -305,6 +305,26 @@ int choose_best_ai_move(uint64_t game_board, uint64_t p1_moves) {
     }
 
     return best_column;
+}
+
+uint64_t isolate_winning_moves(uint64_t game_board) {
+    uint8_t directions[4] = {1U, 6U, 7U, 8U};
+    
+    for (int i = 0; i < 4; ++i) {
+        uint64_t two_shift = game_board & (game_board << directions[i]);
+        two_shift = two_shift & (two_shift << 2*directions[i]);
+
+        if (two_shift != 0U) {
+            uint64_t line_bits = two_shift | two_shift >> directions[i];
+            line_bits = line_bits | line_bits >> 2*directions[i];
+
+            /* This function intentionally picks a single direction, rather
+             * than all bits (if 2+ lines have been formed) */
+            return line_bits;
+        }
+    }
+
+    return 0;
 }
 
 #endif /* BOARD_H_ */

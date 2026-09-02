@@ -157,6 +157,9 @@ volatile uint16_t gpiob_output_data[42] = {0U};  // Cast to uint32_t with 0-exte
 uint64_t game_board = 0U;
 uint64_t p1_moves = 0U;
 uint8_t move_num = 0U;
+extern unsigned int MINIMAX_MAX_DEPTH;
+void (*player_color_set)(uint8_t);
+void (*ai_color_set)(uint8_t);
 
 /* USER CODE END PV */
 
@@ -215,12 +218,57 @@ void set_color_col(uint8_t bitboard_position) {
     gpiob_output_data[bitboard_to_buffer_index(bitboard_position)] = get_col_odr(bitboard_position);
 }
 
-void end_player_win(void) {
+void set_color_none(uint8_t bitboard_position) {
+    gpiob_output_data[bitboard_to_buffer_index(bitboard_position)] = 0U;
+}
+
+void flash_winning_moves(uint64_t game_board, bool is_player_win) {
+    uint64_t winning_moves = isolate_winning_moves(game_board);
+    uint8_t move_indices[4U]; // Note this intentionally has a maximum of 4 for simplicity
+    void (*color_set_funct)(uint8_t);
+
+    // Get winning bit indeces
+    uint8_t count = 0U;
+    for (uint8_t index = 0U; index < 64U && count < 4U; index++) {
+        if ((winning_moves & (1ULL << index)) != 0U) {
+            move_indices[count++] = index;
+        }
+    }
+
+    // Get function pointer for correct color
+    if (is_player_win){
+        color_set_funct = &set_color_col;
+    } else {
+        color_set_funct = &set_color_row;
+    }
+
+    for (uint8_t i = 0; i < 4U; ++i) {
+
+      set_color_none(move_indices[0]);
+      set_color_none(move_indices[1]);
+      set_color_none(move_indices[2]);
+      set_color_none(move_indices[3]);
+
+      HAL_Delay(500);
+
+      color_set_funct(move_indices[0]);
+      color_set_funct(move_indices[1]);
+      color_set_funct(move_indices[2]);
+      color_set_funct(move_indices[3]);
+
+      HAL_Delay(500);
+    }
+}
+
+void end_player_win(uint64_t game_board) {
+    flash_winning_moves(game_board, true);
+    HAL_Delay(3000);
 
 }
 
-void end_ai_win(void) {
-
+void end_ai_win(uint64_t game_board) {
+    flash_winning_moves(game_board, false);
+    HAL_Delay(3000);
 }
 
 void clear_board(void) {
@@ -278,7 +326,7 @@ int main(void)
 
       // Volatile to prevent optimizing out
       // To be read on debug
-      volatile uint32_t flash_error = HAL_FLASH_GetError();
+      // volatile uint32_t flash_error = HAL_FLASH_GetError();
 
       // Fallback safety locks
       HAL_FLASH_OB_Lock();
@@ -346,13 +394,44 @@ int main(void)
     
   HAL_TIM_Base_Start(&htim2);
 
+  // Signal successful startup, sampling user configurations
+  set_color_row(5);
+
+  HAL_Delay(500);
+
+  // Config parameters as follows:
+  // Inputs [1:6] - AI recursion depth  (default: 5)
+  // Input  [7]   - AI starts           (default: false)
+  uint32_t config_parameters = GPIOA->IDR;
+
+  // Shift by 1 so first button aligns to bit 0
+  uint32_t depth_buttons = (config_parameters >> 1) & 0x3F;
+
+  if (depth_buttons != 0U) {
+      MINIMAX_MAX_DEPTH = __builtin_ctz(depth_buttons) + 1;
+  }
+
+  // Set first player move color
+  if ((config_parameters & (1U << 7)) != 0U) {
+      // Offset move number so that AI goes first
+      move_num = 1;
+
+      player_color_set = &set_color_row;
+      ai_color_set = &set_color_col;
+  } else {
+    player_color_set = &set_color_col;
+    ai_color_set = &set_color_row;
+  }
+
+  set_color_none(5);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    while (move_num < 42)
+    while (!is_full(game_board))
     {
       if (move_num % 2 == 0)
       {
@@ -382,7 +461,7 @@ int main(void)
           break;
         }
 
-        set_color_row(location);
+        player_color_set(location);
 
         p1_moves |= (1ULL << location);
         move_num++;
@@ -398,12 +477,12 @@ int main(void)
           break;
         }
 
-        int location = play_move(&game_board, (unsigned char)bot_column);
+        int location = play_move(&game_board, (uint8_t)bot_column);
         if (location < 0) {
           break;
         }
 
-        set_color_col(location);
+        ai_color_set(location);
 
         move_num++;
 
@@ -413,18 +492,18 @@ int main(void)
       }
     }
 
+    HAL_Delay(1000);
+
     if (is_won(p1_moves)) {
-      end_player_win();
+      end_player_win(p1_moves);
     }
     else if (is_won(game_board ^ p1_moves)) {
-      end_ai_win();
+      end_ai_win(game_board ^ p1_moves);
     }
 
     game_board = 0;
     p1_moves = 0;
     move_num = 0;
-
-    HAL_Delay(5000);
 
     clear_board();
 
