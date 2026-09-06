@@ -1,6 +1,6 @@
 # Connect 4 Business Card
 
-This business card doubles as a portable, handheld gaming device that allows a user to play game of Connect 4 against an onboard AI bot. Built on the STM32 platform, it features a custom 7x6 bicolor LED grid and a low-leakage power system designed for long-lasting battery operation.
+This business card doubles as a portable, handheld gaming device that allows a user to play game of Connect 4 against an onboard AI bot. Built on the STM32 platform, it features a custom 7x6 bicolor LED grid and a low-leakage power system designed for maximizing battery life.
 
 > **Status:** Hardware V1.0 Release 
 > **Hardware Version:** V1.0
@@ -12,25 +12,24 @@ This business card doubles as a portable, handheld gaming device that allows a u
 ## Features
 
 - **Strategic Gameplay**
-  - Play against a programmed AI bot on a microcontroller.
-  - 7x6 bicolor LED grid representing the game board.
+  - Play against a programmed AI bot on a microcontroller. You can select the difficulty and starting player through startup configurations.
+  - 7x6 bicolor LED grid representing the game board. Player pieces are shown in Red / Orange
 
-- **Dual Power Modes**
+- **Dual Power Options**
   - **Battery Mode:** Optimized for a CR2032 coin cell for maximum portability.
-  - **High-Performance Mode:** USB-C power input automatically boosts clock frequency for faster AI move processing.
+  - **High-Performance Mode:** USB-C power input automatically boosts clock frequency for faster AI move processing. (Upcoming)
 
-- **Intelligent Power Management**
+- **Power Management**
   - Physical slide switch for hard battery disconnection to prevent leakage current.
   - Integrated under-voltage and brown-out protection (BOR/POR/PDR).
-  - Battery voltage monitoring for low-power alerts.
 
 - **Advanced Display Control**
   - 42 bicolor LEDs (84 total elements) routed antiparallel for layout efficiency.
-  - Hardware-accelerated screen refreshing using DMA and Timers to minimize CPU overhead.
+  - Hardware-accelerated screen refreshing using timer triggered DMA writes to minimize CPU overhead.
 
 - **Optimized Inputs**
   - 7 dedicated column buttons for move selection.
-  - Interrupt-driven debouncing to ensure clean, single-press registration.
+  - Software debouncing by limiting input registration windows.
 
 ---
 
@@ -62,7 +61,8 @@ This business card doubles as a portable, handheld gaming device that allows a u
 ### Microcontroller (STM32U073CCU6)
 
 - **Architecture:** Ultra-low-power high-performance MCU.
-- **Clock Management:** - **Battery Mode:** Lower frequency to conserve energy.
+- **Clock Management:** (Upcoming)
+  - **Battery Mode:** Lower frequency to conserve energy.
   - **USB Mode:** Increased clock frequency for "intense" AI computation.
 
 **Key Peripherals**
@@ -97,9 +97,10 @@ The display consists of 42 bicolor LEDs wired in an antiparallel configuration.
 
 ### Overview
 
-The firmware is designed for efficiency and responsiveness. On startup, the MCU performs a **USB-C Detection** check. If USB power is detected, the clock registers are configured for high-speed operation. The main game loop handles the Connect 4 logic, while the display refresh is handled entirely in the background via DMA.
+The firmware is designed for efficiency and responsiveness. 
+On startup, the MCU reads the buttons to get startup config values. The rightmost button will select the AI going first, and the others select the difficulty from 1-6 (default 5)
+The main game loop handles the Connect-4 logic, while the display refresh is handled entirely in the background via timer triggered DMA.
 
 ### Programming
 
-- **DFU Mode:** The USB-C port allows for easy firmware updates using Device Firmware Upgrade (DFU) mode.
 - **Debug:** A standard SWD header is provided for real-time debugging and initial flashing.
